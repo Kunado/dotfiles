@@ -88,4 +88,3 @@ colorscheme railscasts
 
 let g:lightline={}
 let g:lightline.colorscheme='railscasts'
-set laststatus=2

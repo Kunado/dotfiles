@@ -24,6 +24,8 @@ export PATH=$PATH:$ELASTICPATH
 eval "$(rbenv init -)"
 
 export RAILS_ENV=development
+
+export PATH=$PATH:/
 # -------------------------------------
 # zshのオプション
 # -------------------------------------
@@ -194,3 +196,8 @@ eval "$(direnv hook zsh)"
 
 # added by travis gem
 [ -f /Users/sarutanaoki/.travis/travis.sh ] && source /Users/sarutanaoki/.travis/travis.sh
+
+
+source .bashrc
+powerline-daemon -q
+. /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
