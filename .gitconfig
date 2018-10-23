@@ -1,2 +1,5 @@
 [init]
           templatedir = $HOME/.git_template
+[user]
+	name = kunado
+	email = katsusand1@gmail.com
