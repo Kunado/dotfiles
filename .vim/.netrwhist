@@ -1,0 +1,6 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_1='/Users/sarutanaoki/.atom/packages/pdf-view/node_modules/pdfjs-dist/build'
+let g:netrw_dirhist_2='/Users/sarutanaoki/ruby_env/woodhouse-api/test'
+let g:netrw_dirhist_3='/Users/sarutanaoki/.vim'
+let g:netrw_dirhist_4='/Users/sarutanaoki/TsukubaSweetsProject/.git'
