@@ -1,5 +1,7 @@
-[init]
-          templatedir = ~/.git_template
+#[init]
+#  templatedir = ~/.git_template
 [user]
 	name = kunado
 	email = katsusand1@gmail.com
+[alias]
+	initialize = !~/.git_init.sh
