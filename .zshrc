@@ -16,6 +16,10 @@ export MANPAGER=/usr/local/bin/vimpager
 # nodebrew
 export PATH=$HOME/.nodebrew/current/bin:$PATH
 
+# opencv
+export PKG_CONFIG_PATH=/usr/local/Cellar/opencv/3.4.3_1/lib/pkgconfig:$PKG_CONFIG_PATH
+export LD_LIBRARY_PATH=/usr/local/Cellar/opencv/3.4.3_1/lib:$LD_LIBRARY_PATH
+
 # elasticsearch
 export ELASTICPATH=/usr/local/opt/elasticsearch/libexec/bin
 export PATH=$PATH:$ELASTICPATH
@@ -64,7 +68,7 @@ setopt auto_cd
 
 # -------------------------------------
 # パス
-# -------------------------------------
+
 
 # 重複する要素を自動的に削除
 typeset -U path cdpath fpath manpath
@@ -153,6 +157,7 @@ alias subl='open -g -a /Applications/Sublime\ Text.app'
 
 # related to docker
 alias dc='docker-compose'
+alias dc run='docker-compose run --rm'
 alias be='bundle exec'
 
 # -------------------------------------
@@ -199,6 +204,11 @@ eval "$(direnv hook zsh)"
 [ -f /Users/sarutanaoki/.travis/travis.sh ] && source /Users/sarutanaoki/.travis/travis.sh
 
 
-source .bashrc
+source ~/.bashrc
 powerline-daemon -q
 . /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
+export UID=501
+alias latexmk="latexmk -pvc"
+export GOPATH=/Users/sarutanaoki/dev
+export PATH=/Users/sarutanaoki/.nodebrew/current/bin:/Users/sarutanaoki/.rbenv/shims:/Users/sarutanaoki/.nodebrew/current/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/TeX/texbin:/usr/local/opt/elasticsearch/libexec/bin:/:GOPATH/bin:/Users/sarutanaoki/dev/bin
+alias delb='git branch | peco | xargs git branch -D'
