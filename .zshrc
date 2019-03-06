@@ -153,6 +153,7 @@ alias tree="tree -NC" # N: 文字化け対策, C:色をつける
 alias brackets="open -g -a /Applications/Brackets.app"
 alias chrome="open -g -a /Applications/Google\ Chrome.app"
 alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs'
+alias subl='open -g -a /Applications/Sublime\ Text.app'
 
 # related to docker
 alias dc='docker-compose'
