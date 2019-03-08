@@ -13,23 +13,12 @@ export EDITOR=/usr/local/bin/vim
 export PAGER=/usr/local/bin/vimpager
 export MANPAGER=/usr/local/bin/vimpager
 
-# nodebrew
-export PATH=$HOME/.nodebrew/current/bin:$PATH
-
 # opencv
 export PKG_CONFIG_PATH=/usr/local/Cellar/opencv/3.4.3_1/lib/pkgconfig:$PKG_CONFIG_PATH
 export LD_LIBRARY_PATH=/usr/local/Cellar/opencv/3.4.3_1/lib:$LD_LIBRARY_PATH
 
-# elasticsearch
-export ELASTICPATH=/usr/local/opt/elasticsearch/libexec/bin
-export PATH=$PATH:$ELASTICPATH
-
-# rbenv
-eval "$(rbenv init -)"
-
 export RAILS_ENV=development
 
-export PATH=$PATH:/
 # -------------------------------------
 # zshのオプション
 # -------------------------------------
@@ -73,12 +62,12 @@ setopt auto_cd
 # 重複する要素を自動的に削除
 typeset -U path cdpath fpath manpath
 
-#path=(
-#    $HOME/bin(N-/)
-#    /usr/local/bin(N-/)
-#    /usr/local/sbin(N-/)
-#    $path
-#)
+path=(
+ #   $HOME/bin(N-/)
+ #   /usr/local/bin(N-/)
+ #   /usr/local/sbin(N-/)
+    $path
+    )
 
 # -------------------------------------
 # プロンプト
@@ -156,9 +145,9 @@ alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs'
 alias subl='open -g -a /Applications/Sublime\ Text.app'
 
 # related to docker
-alias dc='docker-compose'
-alias dc run='docker-compose run --rm'
-alias be='bundle exec'
+#alias dc="docker-compose"
+alias dc run="docker-compose run --rm"
+alias be="bundle exec"
 
 # -------------------------------------
 # キーバインド
@@ -210,5 +199,7 @@ powerline-daemon -q
 export UID=501
 alias latexmk="latexmk -pvc"
 export GOPATH=/Users/sarutanaoki/dev
-export PATH=/Users/sarutanaoki/.nodebrew/current/bin:/Users/sarutanaoki/.rbenv/shims:/Users/sarutanaoki/.nodebrew/current/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/TeX/texbin:/usr/local/opt/elasticsearch/libexec/bin:/:GOPATH/bin:/Users/sarutanaoki/dev/bin
+# export PATH=/Users/sarutanaoki/.nodebrew/current/bin:/Users/sarutanaoki/.nodebrew/current/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/TeX/texbin:/usr/local/opt/elasticsearch/libexec/bin:/:GOPATH/bin:/Users/sarutanaoki/dev/bin
+export PATH=$PATH:$GOPATH
 alias delb='git branch | peco | xargs git branch -D'
+export PATH="/usr/local/opt/ruby/bin:$PATH"
