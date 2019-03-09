@@ -38,6 +38,7 @@ alias chrome="open -g -a /Applications/Google\ Chrome.app"
 alias dc="docker-compose"
 alias latexmk="latexmk -pvc"
 alias delb="git branch | peco | xargs git branch -D"
+alias chb="git checkout $(git branch | peco)"
 alias tree="tree -NC"
 alias date="gdate"
 
