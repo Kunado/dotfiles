@@ -5,3 +5,5 @@
 	email = katsusand1@gmail.com
 [alias]
 	initialize = !~/.git_init.sh
+[ghq]
+	root = /Users/sarutanaoki/dev/src
