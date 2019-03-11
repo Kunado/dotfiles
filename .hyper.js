@@ -12,7 +12,7 @@ module.exports = {
     fontSize: 15,
 
     // font family with optional fallbacks
-    fontFamily: 'Ricty',
+    fontFamily: 'Ricty for Powerline',
 
     // default font weight: 'normal' or 'bold'
     fontWeight: 'normal',
