@@ -39,6 +39,9 @@ alias dc="docker-compose"
 alias latexmk="latexmk -pvc"
 alias delb="git branch | peco | xargs git branch -D"
 alias chb="git branch | peco | xargs git checkout"
+alias cdrepo='cd $(ghq root)/$(ghq list | peco)'
+alias openrepo='hub browse $(ghq list | peco | cut -d "/" -f 2,3)'
+alias ghqroot='cd $(ghq root)'
 alias tree="tree -NC"
 alias date="gdate"
 
@@ -101,6 +104,26 @@ autoload -U promptinit; promptinit
 autoload -Uz colors; colors
 autoload -Uz vcs_info
 autoload -Uz is-at-least
+
+# powerline
+# -------------------
+
+function powerline_precmd() {
+    PS1="$(powerline-shell --shell zsh $?)"
+}
+
+function install_powerline_precmd() {
+  for s in "${precmd_functions[@]}"; do
+    if [ "$s" = "powerline_precmd" ]; then
+      return
+    fi
+  done
+  precmd_functions+=(powerline_precmd)
+}
+
+if [ "$TERM" != "linux" ]; then
+    install_powerline_precmd
+fi
 
 # begin VCS
 zstyle ":vcs_info:*" enable git svn hg bzr
