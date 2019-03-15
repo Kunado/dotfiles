@@ -6,4 +6,4 @@
 [alias]
 	initialize = !~/.git_init.sh
 [ghq]
-	root = /Users/sarutanaoki/dev/src
+	root = ~/dev/src
