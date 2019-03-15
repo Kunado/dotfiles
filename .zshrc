@@ -1,53 +1,8 @@
-# environmental variables
-# -------------------
-
-## language settings
-## ----------
-
-export LC_CTYPE=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
-
-## vim, vimpager
-## ----------
-
-export VIM=/usr/local/bin/vim
-export VIMPAGER=/usr/local/bin/vimpager
-
-## editor and pager
-## ----------
-
-export EDITOR=$VIM
-export PAGER=$VIMPAGER
-export MANPAGER=$VIMPAGER
-
-## PATH
-## ----------
-
-export GOPATH=$HOME/dev
-export PATH=$GOPATH/bin:$PATH
-export PATH=/usr/local/opt/ruby/bin:$PATH
-
-# aliases
-# -------------------
-
-alias ls="ls -G"
-alias l="ls -la"
-alias la="ls -la"
-alias l1="ls -1"
-alias chrome="open -g -a /Applications/Google\ Chrome.app"
-alias dc="docker-compose"
-alias latexmk="latexmk -pvc"
-alias delb="git branch | peco | xargs git branch -D"
-alias chb="git branch | peco | xargs git checkout"
-alias cdrepo='cd $(ghq root)/$(ghq list | peco)'
-alias openrepo='hub browse $(ghq list | peco | cut -d "/" -f 2,3)'
-alias ghqroot='cd $(ghq root)'
-alias tree="tree -NC"
-alias date="gdate"
-
-
 # zsh settings
 # -------------------
+
+source .zshrc_envvars
+source .zshrc_aliases
 
 ## auto completion
 ## ----------
