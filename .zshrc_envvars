@@ -1,0 +1,28 @@
+# environmental variables
+# -------------------
+
+## language settings
+## ----------
+
+export LC_CTYPE=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+
+## vim, vimpager
+## ----------
+
+export VIM=/usr/local/bin/vim
+export VIMPAGER=/usr/local/bin/vimpager
+
+## editor and pager
+## ----------
+
+export EDITOR=$VIM
+export PAGER=$VIMPAGER
+export MANPAGER=$VIMPAGER
+
+## PATH
+## ----------
+
+export GOPATH=$HOME/dev
+export PATH=$GOPATH/bin:$PATH
+export PATH=/usr/local/opt/ruby/bin:$PATH
