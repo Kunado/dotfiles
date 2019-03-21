@@ -4,9 +4,9 @@
 ## load environmental variables, aliases and functions
 ## ----------
 
-source .zshrc_envvars
-source .zshrc_aliases
-source .zshrc_functions
+source ~/.zshrc_envvars
+source ~/.zshrc_aliases
+source ~/.zshrc_functions
 
 ## auto completion
 ## ----------
