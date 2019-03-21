@@ -1,0 +1,60 @@
+# functions
+# -------------------
+
+## shell
+## ----------
+
+# insert blank line
+precmd(){
+  print
+}
+
+# runnning ls after changing directory
+function chpwd() {
+	ls -1
+}
+
+
+## powerline
+## ----------
+
+function powerline_precmd() {
+    PS1="$(powerline-shell --shell zsh $?)"
+}
+
+function install_powerline_precmd() {
+  for s in "${precmd_functions[@]}"; do
+    if [ "$s" = "powerline_precmd" ]; then
+      return
+    fi
+  done
+  precmd_functions+=(powerline_precmd)
+}
+
+if [ "$TERM" != "linux" ]; then
+    install_powerline_precmd
+fi
+
+
+## ghq
+## ----------
+
+function ghq-new() {
+  local root=`ghq root`
+  local user=`git config --get github.user`
+  if [ -z "$user" ]; then
+    echo "you need to set github.user."
+    echo "git config --global github.user YOUR_GITHUB_USER_NAME"
+    return 1
+  fi
+  local name=$1
+  local repo="$root/github.com/$user/$name"
+  if [ -e "$repo" ]; then
+    echo "$repo is already exists."
+    return 1
+  fi
+  git init $repo
+  cd $repo
+  echo "# ${(C)name}" > README.md
+  git add .
+}
