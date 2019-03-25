@@ -15,3 +15,4 @@ alias openrepo='hub browse $(ghq list | peco | cut -d "/" -f 2,3)'
 alias ghqroot='cd $(ghq root)'
 alias tree="tree -NC"
 alias date="gdate"
+alias imagetag="docker image ls | awk '{printf "%s:%s\n", $1, $2}' | peco"
