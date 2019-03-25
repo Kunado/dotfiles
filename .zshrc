@@ -1,8 +1,12 @@
 # zsh settings
 # -------------------
 
-source .zshrc_envvars
-source .zshrc_aliases
+## load environmental variables, aliases and functions
+## ----------
+
+source ~/.zshrc_envvars
+source ~/.zshrc_aliases
+source ~/.zshrc_functions
 
 ## auto completion
 ## ----------
@@ -51,6 +55,10 @@ setopt no_tify
 
 setopt hist_ignore_dups
 
+## nomatch
+## ----------
+setopt nonomatch
+
 
 # prompt settings
 # -------------------
@@ -60,71 +68,7 @@ autoload -Uz colors; colors
 autoload -Uz vcs_info
 autoload -Uz is-at-least
 
-# powerline
-# -------------------
-
-function powerline_precmd() {
-    PS1="$(powerline-shell --shell zsh $?)"
-}
-
-function install_powerline_precmd() {
-  for s in "${precmd_functions[@]}"; do
-    if [ "$s" = "powerline_precmd" ]; then
-      return
-    fi
-  done
-  precmd_functions+=(powerline_precmd)
-}
-
-if [ "$TERM" != "linux" ]; then
-    install_powerline_precmd
-fi
-
-# begin VCS
-zstyle ":vcs_info:*" enable git svn hg bzr
-zstyle ":vcs_info:*" formats "(%s)-[%b]"
-zstyle ":vcs_info:*" actionformats "(%s)-[%b|%a]"
-zstyle ":vcs_info:(svn|bzr):*" branchformat "%b:r%r"
-zstyle ":vcs_info:bzr:*" use-simple true
-
-zstyle ":vcs_info:*" max-exports 6
-
-if is-at-least 4.3.10; then
-    zstyle ":vcs_info:git:*" check-for-changes true # commitしていないのをチェック
-    zstyle ":vcs_info:git:*" stagedstr "<S>"
-    zstyle ":vcs_info:git:*" unstagedstr "<U>"
-    zstyle ":vcs_info:git:*" formats "(%b) %c%u"
-    zstyle ":vcs_info:git:*" actionformats "(%s)-[%b|%a] %c%u"
-fi
-
-function vcs_prompt_info() {
-    LANG=en_US.UTF-8 vcs_info
-    [[ -n "$vcs_info_msg_0_" ]] && echo -n " %{$fg[yellow]%}$vcs_info_msg_0_%f"
-}
-# end VCS
-precmd(){
-# insert blank line
-  print
-}
-
-OK="PASS "
-NG="ERROR "
-
-PROMPT=""
-PROMPT+="%(?.%F{green}$OK%f.%F{red}$NG%f) "
-PROMPT+="%F{blue}%~%f"
-PROMPT+="\$(vcs_prompt_info)"
-PROMPT+="
-"
-PROMPT+="%% "
-
-RPROMPT="[%*]"
-
-#PROMPT="%{${fg[green]}%}[%n@%m]%{${reset_color}%} %~
-#%# "
-
-
-# 重複する要素を自動的に削除
+# delete duplicated elements
 typeset -U path cdpath fpath manpath
 
 path=(
@@ -134,37 +78,19 @@ path=(
     $path
     )
 
-# -------------------------------------
-# キーバインド
-# -------------------------------------
+
+# keybind settings
+# -------------------
 
 bindkey -e
-
-function cdup() {
-   echo
-   cd ..
-   zle reset-prompt
-}
-zle -N cdup
-bindkey '^K' cdup
-
 bindkey "^R" history-incremental-search-backward
 
-# -------------------------------------
-# その他
-# -------------------------------------
 
-# cdしたあとで、自動的に ls する
-
-# runnning ls after changing directory
-function chpwd() { ls -1 }
-
-
-# 'no matches found'
-setopt nonomatch
+# other settings
+# -------------------
 
 # direnv
 eval "$(direnv hook zsh)"
 
 # added by travis gem
-[ -f /Users/sarutanaoki/.travis/travis.sh ] && source /Users/sarutanaoki/.travis/travis.sh
+[ -f ~/.travis/travis.sh ] && source ~/.travis/travis.sh
