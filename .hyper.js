@@ -9,10 +9,10 @@ module.exports = {
     updateChannel: 'stable',
 
     // default font size in pixels for all tabs
-    fontSize: 15,
+    fontSize: 13,
 
     // font family with optional fallbacks
-    fontFamily: 'Ricty for Powerline',
+    fontFamily: 'Monaco',
 
     // default font weight: 'normal' or 'bold'
     fontWeight: 'normal',
