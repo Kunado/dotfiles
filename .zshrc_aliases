@@ -16,3 +16,4 @@ alias repopath='{ghq root; ghq list | peco} | sed -e "N;s/\n//g"'
 alias ghqroot='cd $(ghq root)'
 alias tree="tree -NC"
 alias date="gdate"
+alias ghci="stack ghci"
