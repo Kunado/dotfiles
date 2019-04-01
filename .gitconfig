@@ -7,3 +7,7 @@
 	initialize = !~/.git_init.sh
 [ghq]
 	root = ~/dev/src
+[github]
+	user = kunado
+[commit]
+	template = ~/.commit_template
