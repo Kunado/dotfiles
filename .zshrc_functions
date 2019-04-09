@@ -14,6 +14,17 @@ function chpwd() {
 	ls -1
 }
 
+# setting environmental variables
+function setenvvars() {
+  local envfile=$1
+  while read line
+  do
+    local KEY=$(echo $line | awk -F'[=]' '{print $1}')
+    local VAL=$(echo $line | awk -F'[=]' '{print $2}')
+    export $KEY=$VAL
+  done < $envfile
+}
+
 
 ## powerline
 ## ----------
@@ -58,6 +69,9 @@ function ghq-new() {
   echo "# ${(C)name}" > README.md
   git add .
 }
+
+## github
+## ----------
 
 function pr() {
   local parentBranch=$(git branch | peco)

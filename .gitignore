@@ -1,3 +1,4 @@
 */node_modules/
 # hyper_plugins
 .hyper_plugins/cache/
+.trellorc
