@@ -1,13 +1,16 @@
 #[init]
 #  templatedir = ~/.git_template
 [user]
-	name = kunado
+	name = Naoki Saruta
 	email = katsusand1@gmail.com
 [alias]
 	initialize = !~/.git_init.sh
+  empty-commit = commit --allow-empty -m "empty"
 [ghq]
 	root = ~/dev/src
 [github]
 	user = kunado
+[url "git@github.com:"]
+  insteadOf = https://github.com/
 [commit]
 	template = ~/.commit_template
