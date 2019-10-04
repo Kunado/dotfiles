@@ -79,3 +79,62 @@ function pr() {
   local repoURL=$(git remote -v | awk '{print $2}' | sed -n 1p | sed s#.*github.com.#https://github.com/#g | sed s\/\.git$//g)
   chrome ${repoURL/* /}/compare/${parentBranch/* /}...${currentBranch/* /}
 }
+
+function gfpc (){
+  local current_branch_name=$(git symbolic-ref --short HEAD|tr -d \"\\n\")
+  echo "$@" | sed -E 's/^dev//' | {
+    read num
+    case "$num" in
+      "2" ) num="2nd" ;;
+      "3" ) num="3rd" ;;
+      [3-9]* ) num=$num"th" ;;
+      * ) num="error" ;;
+    esac
+    if [ $num == "error" ] ; then
+      echo "branch not found."
+      return 1
+    fi
+    local deploy_branch_name="deployment/development_"$num
+    echo $deploy_branch_name
+
+    git push -f origin $current_branch_name:$deploy_branch_name
+  }
+}
+
+function feat-br() {
+  git checkout -b feature/$1
+}
+
+function create-pr() {
+  local currentBranch=$(git symbolic-ref --short HEAD)
+  git empty-commit
+  git push --set-upstream origin $currentBranch
+  export PR_NUM=$(hub pull-request --no-edit | awk -F'[/]' '{print $NF}')
+  git reset HEAD^
+}
+
+function feat-commit() {
+  git commit -m "GH-$PR_NUM $1"
+}
+
+## grep
+## ----------
+
+function grepr() {
+  local string=$1
+  local dir=$2
+  grep -r "$string" $dir
+}
+
+function greprsoniq() {
+  local string=$1
+  local dir=$2
+  grepr $string $dir | awk -F[:] '{print $1}' | soniq
+}
+
+## mas
+## ----------
+
+function mas-search-id() {
+  mas search $1 | peco | awk '{print $1}'
+}
