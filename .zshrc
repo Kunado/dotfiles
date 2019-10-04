@@ -92,5 +92,8 @@ bindkey "^R" history-incremental-search-backward
 # direnv
 eval "$(direnv hook zsh)"
 
+# anyenv
+eval "$(anyenv init -)"
+
 # added by travis gem
 [ -f ~/.travis/travis.sh ] && source ~/.travis/travis.sh
