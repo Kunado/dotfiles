@@ -50,7 +50,13 @@ alias ghqroot='cd $(ghq root)'
 ## other
 ## ----------
 
-alias chrome="open -g -a /Applications/Google\ Chrome.app"
 alias latexmk="latexmk -pvc"
 alias ghci="stack ghci"
+alias hl="highlight"
+
+## ----------
+## alias for GUI apps
+## ----------
+
+alias chrome="open -g -a /Applications/Google\ Chrome.app"
 alias skim="open -a skim"
