@@ -4,9 +4,10 @@
 ## load environmental variables, aliases and functions
 ## ----------
 
-source ~/.zshrc_envvars
-source ~/.zshrc_aliases
-source ~/.zshrc_functions
+[ -f ~/.zshrc_functions ] && source ~/.zshrc_functions
+[ -f ~/.zshrc_envvars ] && source ~/.zshrc_envvars
+[ -f ~/.zshrc_aliases ] && source ~/.zshrc_aliases
+[ -f ~/.zshrc_local ] && source ~/.zshrc_local
 
 ## auto completion
 ## ----------
@@ -93,7 +94,7 @@ bindkey "^R" history-incremental-search-backward
 eval "$(direnv hook zsh)"
 
 # anyenv
-eval "$(anyenv init -)"
+eval "$(anyenv init - zsh)"
 
 # added by travis gem
 [ -f ~/.travis/travis.sh ] && source ~/.travis/travis.sh
