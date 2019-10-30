@@ -23,6 +23,12 @@ export PAGER=$VIMPAGER
 export MANPAGER=$VIMPAGER
 
 
+## XDG Base Directory Specification
+## ------------------
+
+export XDG_CONFIG_HOME=$HOME/.config
+
+
 ## PATHS
 ## ------------------
 
