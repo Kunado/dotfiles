@@ -1,0 +1,5 @@
+anyenv/
+hub
+direnv/
+git/
+yarn/global/node_modules/
