@@ -11,8 +11,9 @@ export LC_ALL=en_US.UTF-8
 ## vim, vimpager
 ## ------------------
 
-export VIM=/usr/local/bin/vim
-export VIMPAGER=/usr/local/bin/vimpager
+export VIMRUNTIME=/usr/local/share/vim/vim81
+export VIM=/usr/local/share/vim
+export VIMPAGER=/usr/local/share/vimpager
 
 
 ## editor and pager
