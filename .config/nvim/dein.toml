@@ -54,4 +54,10 @@ repo = 'Shougo/vimproc'
 repo = 'ryanoasis/vim-devicons'
 
 [[plugins]]
+repo = 'scrooloose/nerdtree'
+
+[[plugins]]
 repo = 'scrooloose/syntastic'
+
+[[plugins]]
+repo = 'w0rp/ale'

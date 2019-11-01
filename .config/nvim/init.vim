@@ -105,6 +105,10 @@ set t_Co=256
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 let g:DevIconEnableFoldersOpenClose = 1
 
+" NERDTree-----------------------------
+nnoremap <silent><C-e> :NERDTreeToggle<CR>
+
+" VimFiler-----------------------------
 nmap sf :VimFilerBufferDir<Return>
 nmap sF :VimFilerExplorer -find<Return>
 nmap sb :Unite buffer<Return>
@@ -115,3 +119,14 @@ let g:vimfiler_tree_leaf_icon = ''
 let g:vimfiler_tree_opened_icon = '▾'
 let g:vimfiler_tree_closed_icon = '▸'
 let g:vimfiler_marked_file_icon = '✓'
+
+" ALE----------------------------------
+let g:ale_sign_column_always = 1
+let g:ale_echo_msg_error_str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
+
+
+let g:python3_host_prog = substitute(system('which python3'),"\n","","")
