@@ -51,9 +51,6 @@ repo = 'Shougo/unite.vim'
 repo = 'Shougo/vimproc'
 
 [[plugins]]
-repo = 'scrooloose/nerdtree'
-
-[[plugins]]
 repo = 'ryanoasis/vim-devicons'
 
 [[plugins]]
