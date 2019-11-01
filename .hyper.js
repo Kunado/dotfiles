@@ -171,7 +171,8 @@ module.exports = {
     "hyper-opacity",
     "hyper-search",
     "hyperlinks",
-    "hyperterm-summon"
+    "hyperterm-summon",
+    "hyper-monokai-deluxe"
   ],
 
   // in development, you can create a directory under
