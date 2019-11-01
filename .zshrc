@@ -3,13 +3,11 @@
 
 ## load environmental variables, aliases and functions
 ## ----------
-
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
-[ -f ~/.zshrc_functions ] && source ~/.zshrc_functions
-[ -f ~/.zshrc_envvars ] && source ~/.zshrc_envvars
-[ -f ~/.zshrc_aliases ] && source ~/.zshrc_aliases
-[ -f ~/.zshrc_local ] && source ~/.zshrc_local
-[ -f ~/.zshrc_zplug ] && source ~/.zshrc_zplug
+[ -f ~/.zsh/functions.zsh ] && source ~/.zsh/functions.zsh
+[ -f ~/.zsh/envvars.zsh ] && source ~/.zsh/envvars.zsh
+[ -f ~/.zsh/aliases.zsh ] && source ~/.zsh/aliases.zsh
+[ -f ~/.zsh/zplug.zsh ] && source ~/.zsh/zplug.zsh
 ## auto completion
 ## ----------
 
