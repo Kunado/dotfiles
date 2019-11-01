@@ -105,8 +105,8 @@ set t_Co=256
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 let g:DevIconEnableFoldersOpenClose = 1
 
-" NERDTree-----------------------------
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
+let NERDTreeShowHidden = 1
 
 " VimFiler-----------------------------
 nmap sf :VimFilerBufferDir<Return>
