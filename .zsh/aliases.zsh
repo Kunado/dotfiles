@@ -47,6 +47,14 @@ alias ghqroot='cd $(ghq root)'
 
 
 ## ----------
+## vim
+## ----------
+
+alias v='nvim'
+alias vi='nvim'
+alias vim='nvim'
+
+## ----------
 ## other
 ## ----------
 
