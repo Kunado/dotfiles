@@ -14,7 +14,7 @@ alias tree="tree -NC"
 alias date="gdate"
 alias env_template='cat .env | sed s/=.*/=/g > .env.template'
 alias soniq='sort | uniq'
-
+alias killp='kill $(ps | tail -n +2 | peco | awk '\''{print $1}'\'')'
 
 ## ----------
 ## git
