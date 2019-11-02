@@ -44,7 +44,7 @@ if has('syntax')
   call ZenkakuSpace()
 endif
 
-colorscheme molokai
+colorscheme sublimemonokai
 
 " airline -----------------------------
 let g:airline_theme = 'molokai'
@@ -105,7 +105,8 @@ set t_Co=256
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 let g:DevIconEnableFoldersOpenClose = 1
 
-nnoremap <silent><C-e> :NERDTreeToggle<CR>
+nnoremap <silent><C-k><C-b> :NERDTreeToggle<CR>
+nnoremap NTF :NERDTreeFocus<CR>
 let NERDTreeShowHidden = 1
 
 " VimFiler-----------------------------
