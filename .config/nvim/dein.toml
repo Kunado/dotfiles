@@ -61,3 +61,6 @@ repo = 'scrooloose/syntastic'
 
 [[plugins]]
 repo = 'w0rp/ale'
+
+[[plugins]]
+repo = 'ErichDonGubler/vim-sublime-monokai'
