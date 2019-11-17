@@ -8,20 +8,12 @@ export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
 
-## vim, vimpager
-## ------------------
-
-export VIMRUNTIME=/usr/local/share/vim/vim81
-export VIM=/usr/local/share/vim
-export VIMPAGER=/usr/local/share/vimpager
-
-
 ## editor and pager
 ## ------------------
 
-export EDITOR=$VIM
-export PAGER=$VIMPAGER
-export MANPAGER=$VIMPAGER
+export EDITOR=vim
+export PAGER=vimpager
+export MANPAGER=vimpager
 
 
 ## XDG Base Directory Specification
