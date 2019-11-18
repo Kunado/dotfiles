@@ -8,6 +8,7 @@
 [ -f ~/.zsh/envvars.zsh ] && source ~/.zsh/envvars.zsh
 [ -f ~/.zsh/aliases.zsh ] && source ~/.zsh/aliases.zsh
 [ -f ~/.zsh/zplug.zsh ] && source ~/.zsh/zplug.zsh
+[ -f ~/.zsh/tmux.zsh ] && source ~/.zsh/tmux.zsh
 ## auto completion
 ## ----------
 
