@@ -2,3 +2,4 @@
 # hyper_plugins
 .hyper_plugins/cache/
 .zshrc.local
+.tmux.conf.local
