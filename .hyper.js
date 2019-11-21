@@ -52,7 +52,11 @@ module.exports = {
     borderColor: '#333',
 
     // custom CSS to embed in the main window
-    css: '',
+    css: `
+      .header_header {
+        background: transparent!important;
+      }
+    `,
 
     // custom CSS to embed in the terminal window
     termCSS: '',
@@ -67,7 +71,7 @@ module.exports = {
     showWindowControls: '',
 
     // custom padding (CSS format, i.e.: `top right bottom left`)
-    padding: '12px 14px',
+    padding: '5px 3px 0 3px',
 
     // the full list. if you're going to provide the full color palette,
     // including the 6 x 6 color cubes and the grayscale map, just provide
