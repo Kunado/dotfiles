@@ -29,4 +29,4 @@ const batteryIcon = (percent, acconnected) => {
   return "\uf578";
 };
 
-(0, _systeminformation.battery)().then(data => console.log(` ${batteryIcon(data.percent, data.acconnected)} ${data.percent}% `));
+(0, _systeminformation.battery)().then(data => console.log(`${batteryIcon(data.percent, data.acconnected)} ${data.percent}% `));

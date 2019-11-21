@@ -29,5 +29,5 @@ const batteryIcon = (percent, acconnected) => {
 }
 
 battery().then(data =>
-  console.log(` ${batteryIcon(data.percent, data.acconnected)} ${data.percent}% `)
+  console.log(`${batteryIcon(data.percent, data.acconnected)} ${data.percent}% `)
 )
