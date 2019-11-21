@@ -12,7 +12,7 @@ module.exports = {
     fontSize: 14,
 
     // font family with optional fallbacks
-    fontFamily: 'RictyDiminished NF',
+    fontFamily: 'RictyDiminishedDiscord Nerd Font',
 
     // default font weight: 'normal' or 'bold'
     fontWeight: 'normal',
@@ -137,18 +137,6 @@ module.exports = {
 
     copyOnSelect: true,
 
-    hyperline: {
-      plugins: 
-      [
-        'hostname',
-        'ip',
-        'memory',
-        'battery',
-        'cpu',
-        'network'
-      ]
-    },
-
     summon: {
       hideDock: true,
       hideOnBlur: true,
@@ -164,9 +152,7 @@ module.exports = {
   //   `project#1.0.1`
   plugins: [
     'hyperterm-material',
-    'hyperline',
     "hyper-tab-icons-plus",
-    "hyper-pane",
     "hypercwd",
     "hyper-opacity",
     "hyper-search",
