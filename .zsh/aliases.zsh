@@ -61,6 +61,7 @@ alias vim='nvim'
 alias latexmk="latexmk -pvc"
 alias ghci="stack ghci"
 alias hl="highlight"
+alias echopaths="echo $PATH | tr ':' '\n'"
 
 ## ----------
 ## alias for GUI apps
