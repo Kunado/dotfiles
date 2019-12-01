@@ -138,3 +138,24 @@ function greprsoniq() {
 function mas-search-id() {
   mas search $1 | peco | awk '{print $1}'
 }
+
+## compile and locate bin file to $PATH
+## ----------
+
+function gccbin() {
+  local fileName=$1
+  local binName=$(echo $fileName | awk -F'[.]' '{print $1}')
+  gcc -o $GOPATH/bin/c/$binName $fileName
+}
+
+## ghq
+## ----------
+
+function cdrepo() {
+  local ghqRoot=$(ghq root)
+  local targetRepo=$(ghq list | peco)
+  if [[ -z "$targetRepo" ]]; then
+    return 1
+  fi
+  cd $ghqRoot/$targetRepo
+}
