@@ -39,7 +39,6 @@ alias killall='docker ps | awk "{print $1}" | sed "1d" | xargs docker kill'
 ## ghq
 ## ----------
 
-alias cdrepo='cd $(ghq root)/$(ghq list | peco)'
 alias openrepo='hub browse $(ghq list | peco | cut -d "/" -f 2,3)'
 alias browse='chrome $(git remote -v | awk '\''{print $2}'\'' | sed -n 1p | sed s#.*github.com.#https://github.com/#g | sed s\/\.git$//g)'
 alias repopath='{ghq root; ghq list | peco} | sed -e "N;s#\n#/#g"'
@@ -61,6 +60,7 @@ alias vim='nvim'
 alias latexmk="latexmk -pvc"
 alias ghci="stack ghci"
 alias hl="highlight"
+alias echopaths="echo $PATH | tr ':' '\n'"
 
 ## ----------
 ## alias for GUI apps
