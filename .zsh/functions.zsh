@@ -159,3 +159,11 @@ function cdrepo() {
   fi
   cd $ghqRoot/$targetRepo
 }
+
+## awk
+## -----------
+
+function awki() {
+  local num=$1
+  awk "{print \$${num}}"
+}
