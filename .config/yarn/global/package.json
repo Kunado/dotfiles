@@ -1,5 +1,8 @@
 {
   "dependencies": {
-    "carbon-now-cli": "^1.4.0"
+    "carbon-now-cli": "^1.4.0",
+    "neovim": "^4.5.0",
+    "ts-node": "^8.5.2",
+    "typescript": "^3.7.2"
   }
 }
