@@ -22,8 +22,16 @@ export MANPAGER=vimpager
 export XDG_CONFIG_HOME=$HOME/.config
 
 
+## fzf
+## ------------------
+
+export FZF_DEFAULT_OPTS="--reverse -m --ansi --cycle --select-1 --exit-0 --bind=ctrl-a:down,ctrl-s:up"
+
 ## PATHS
 ## ------------------
+
+export H=$HOME
+export D=$HOME/Downloads
 
 ### PATH
 ### -----------------

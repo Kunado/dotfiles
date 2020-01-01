@@ -15,6 +15,7 @@ alias date="gdate"
 alias env_template='cat .env | sed s/=.*/=/g > .env.template'
 alias soniq='sort | uniq'
 alias killp='kill $(ps | tail -n +2 | peco | awk '\''{print $1}'\'')'
+alias uncolor='sed -r "s/\x1B\[([0-9]{1,2}(;[0-9]{1,2})?)?[m|K]//g"'
 
 ## ----------
 ## git
@@ -67,4 +68,6 @@ alias echopaths="echo $PATH | tr ':' '\n'"
 ## ----------
 
 alias chrome="open -g -a /Applications/Google\ Chrome.app"
+alias tabletool="open -g -a /usr/local/Caskroom/table-tool/1.2.1/Table\ Tool.app"
+alias tt="tabletool"
 alias skim="open -a skim"
