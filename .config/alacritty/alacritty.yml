@@ -566,6 +566,14 @@ key_bindings:
   #- { key: End,       mods: Shift,   action: ScrollToBottom, mode: ~Alt       }
   - { key: Q, mods: Control, chars: "\x11" }
   - { key: N, mods: Command, action: SpawnNewInstance }
+  - { key: T, mods: Command, command: {program: "/usr/local/bin/tmux", args: ["new-window"]} }
+  - { key: Left, mods: Command, command: {program: "/usr/local/bin/tmux", args: ["previous-window"]} }
+  - { key: Right, mods: Command, command: {program: "/usr/local/bin/tmux", args: ["next-window"]} }
+  - { key: H, mods: Command, command: {program: "/usr/local/bin/tmux", args: ["previous-window"]} }
+  - { key: L, mods: Command, command: {program: "/usr/local/bin/tmux", args: ["next-window"]} }
+  - { key: D, mods: Command, command: {program: "/usr/local/bin/tmux", args: ["split-window", "-h"]} }
+  - { key: F, mods: Command, command: {program: "/usr/local/bin/tmux", args: ["split-window"]} }
+  - { key: W, mods: Command, command: {program: "/usr/local/bin/tmux", args: ["kill-pane"]} }
 
 # Colors (Monokai Dark)
 colors:
