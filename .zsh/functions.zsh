@@ -110,7 +110,7 @@ function fshow() {
 ## ----------
 
 function pr() {
-  local parentBranch=$(git branch | peco)
+  local parentBranch=$(git branch | fzf)
   local currentBranch=$(git branch | grep "*")
   local repoURL=$(git remote -v | awk '{print $2}' | sed -n 1p | sed s#.*github.com.#https://github.com/#g | sed s\/\.git$//g)
   chrome ${repoURL/* /}/compare/${parentBranch/* /}...${currentBranch/* /}
@@ -172,7 +172,7 @@ function greprsoniq() {
 ## ----------
 
 function mas-search-id() {
-  mas search $1 | peco | awk '{print $1}'
+  mas search $1 | fzf | awk '{print $1}'
 }
 
 ## compile and locate bin file to $PATH
@@ -189,7 +189,7 @@ function gccbin() {
 
 function cdrepo() {
   local ghqRoot=$(ghq root)
-  local targetRepo=$(ghq list | peco)
+  local targetRepo=$(ghq list | fzf)
   if [[ -z "$targetRepo" ]]; then
     return 1
   fi

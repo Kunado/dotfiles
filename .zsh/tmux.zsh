@@ -17,7 +17,7 @@ function select_session_to_attach() {
   echo "${sessions}"
 
   # select a session
-  local session="$(echo "${sessions}" | peco | cut -d: -f1)"
+  local session="$(echo "${sessions}" | fzf | cut -d: -f1)"
 
   if [[ "${session}" = "${new_session}" ]]; then
     tmux new-session
