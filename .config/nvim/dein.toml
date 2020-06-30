@@ -2,9 +2,6 @@
 repo = 'Shougo/dein.vim'
 
 [[plugins]]
-repo = 'tpope/vim-endwise'
-
-[[plugins]]
 repo = 'tomtom/tcomment_vim'
 
 [[plugins]]
@@ -64,3 +61,19 @@ repo = 'w0rp/ale'
 
 [[plugins]]
 repo = 'ErichDonGubler/vim-sublime-monokai'
+
+[[plugins]]
+repo = 'vim-latex/vim-latex'
+
+[[plugins]]
+repo = 'neovimhaskell/haskell-vim'
+
+[[plugins]]
+repo = 'neoclide/coc.nvim'
+rev = 'release'
+on_i = 1
+merged = '0'
+hook_add = 'source ~/.config/nvim/coc-options.vim'
+
+[[plugins]]
+repo = 'thinca/vim-quickrun'

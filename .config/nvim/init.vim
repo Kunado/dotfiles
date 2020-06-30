@@ -18,6 +18,13 @@ endif
 filetype plugin indent on
 syntax enable
 
+set fenc=utf-8
+set noswapfile
+set nobackup
+set autoread
+set hidden
+set showcmd
+set ignorecase
 set termguicolors
 set number             "行番号を表示
 set autoindent         "改行時に自動でインデントする
@@ -129,5 +136,21 @@ let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
+let g:python3_host_prog = $PYENV_ROOT.'/versions/neovim3/bin/python'
+let g:ruby_host_prog = system('echo -n $(which neovim-ruby-host)')
+let g:node_host_prog = system('echo -n $(which neovim-node-host)')
 
-let g:python3_host_prog = substitute(system('which python3'),"\n","","")
+autocmd BufNewFile,BufRead *.tsx let b:tsx_ext_found = 1
+autocmd BufNewFile,BufRead *.tsx set filetype=typescript.tsx
+
+set completeopt+=noinsert
+inoremap <CR> <CR>
+
+let g:quickrun_config = {}
+let g:quickrun_config.markdown = {
+  \ 'outputter' : 'null',
+  \ 'command' : 'open',
+  \ 'cmdopt' : '-a',
+  \ 'args' : 'Marked 2',
+  \ 'exec' : '%c %o %a %s',
+  \ }

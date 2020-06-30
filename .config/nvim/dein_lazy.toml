@@ -1,0 +1,41 @@
+[[plugins]]
+repo = 'Shougo/deoplete-rct'
+on_ft = ['ruby']
+
+[[plugins]]
+repo = 'fishbullet/deoplete-ruby'
+on_ft = ['ruby']
+
+[[plugins]]
+repo = 'osyo-manga/vim-monster'
+on_i = 1
+hook_add = '''
+let g:monster#completion#rcodetools#backent = "async_rct_complete"
+let g:deoplete#sources#omni#input_patterns = {
+  \ "ruby" : '[^. *\t]\.w*\|\h\w*::',
+  \}
+'''
+
+[[plugins]]
+repo = 'tpope/vim-endwise'
+on_i = 1
+on_ft = ['ruby']
+
+[[plugins]]
+repo = 'szw/vim-tags'
+
+[[plugins]]
+repo = 'tpope/vim-rails'
+on_ft = ['ruby']
+
+[[plugins]]
+repo = 'Quramy/tsuquyomi'
+
+[[plugins]]
+repo = 'maxmellon/vim-jsx-pretty'
+
+[[plugins]]
+repo = 'leafgarland/typescript-vim'
+
+[[plugins]]
+repo = 'jason0x43/vim-js-indent'
