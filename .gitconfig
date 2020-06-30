@@ -1,8 +1,9 @@
 [user]
-  name = Naoki Saruta
+  name = naoki saruta
   email = katsusand1@gmail.com
 [alias]
   empty-commit = commit --allow-empty -m "empty"
+  diff-staged = diff --cached
 [ghq]
   root = ~/dev/src
 [github]
