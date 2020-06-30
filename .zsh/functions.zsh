@@ -25,6 +25,17 @@ function setenvvars() {
   done < $envfile
 }
 
+## history
+## ----------
+
+function fzf-select-history() {
+  BUFFER="$(history -nr 1 | awk '!a[$0]++' | fzf | sed 's/\\n/\n/')"
+  CURSOR=$#BUFFER
+  zle -R -c
+}
+zle -N fzf-select-history
+bindkey '^H' fzf-select-history
+
 
 ## powerline
 ## ----------
@@ -78,9 +89,8 @@ function gadd() {
   selected=$(unbuffer git status -s | fzf -m --ansi --preview="echo {} | awk '{print \$2}' | xargs git diff --color" | awk '{print $2}')
   if [[ -n "$selected" ]]; then
     selected=$(tr '\n' ' ' <<< "$selected")
-    # git add $selected
-    echo $selected
-    echo "git add $selected"
+    git add ${selected}
+    echo "git add ${selected}"
   fi
 }
 
@@ -103,6 +113,11 @@ function fshow() {
       done
     fi
   done
+}
+
+function push-branch() {
+  local branch_name=$(git branch | grep '*' | awk '{print $2}')
+  git push --set-upstream origin $branch_name
 }
 
 
@@ -188,13 +203,14 @@ function gccbin() {
 ## ----------
 
 function cdrepo() {
-  local ghqRoot=$(ghq root)
-  local targetRepo=$(ghq list | fzf)
+  local targetRepo=$(ghq list --full-path | fzf --preview="ls {}")
   if [[ -z "$targetRepo" ]]; then
     return 1
   fi
-  cd $ghqRoot/$targetRepo
+  cd $targetRepo
 }
+zle -N cdrepo
+bindkey '^z' cdrepo
 
 ## awk
 ## -----------
@@ -203,3 +219,82 @@ function awki() {
   local num=$1
   awk "{print \$${num}}"
 }
+
+function my-aliases() {
+  local aliases=$(cat $HOME/.zsh/aliases.zsh | grep -E "^alias" | sed 's/alias //g')
+  local names=$(echo $aliases | awk -F'=' '{print $1}')
+  echo $names
+  local cmds=$(echo $aliases | awk -F'=' '{print $2}' | sed 's/("|'\'')//g')
+  echo $cmds
+}
+
+#function my-functions() {
+#}
+#
+#function my-cmds() {
+#}
+
+function _get_hosts() {
+  local hosts=$(cut -d' ' -f1  ~/.ssh/known_hosts | tr -d '[]' | tr ',' '\n' | cut -d: -f1)
+  echo $hosts
+}
+
+function fzf-ssh() {
+  hosts=`_get_hosts`
+  local selected_host=$(echo $hosts | peco --prompt="ssh >" --query "$LBUFFER")
+  if [ -n "$selected_host" ]; then
+      BUFFER="ssh ${selected_host}"
+      zle accept-line
+  fi
+}
+zle -N fzf-ssh
+bindkey '^x' fzf-ssh
+
+## memorandums
+## ----------
+
+function memo-new() {
+  local title=$1
+  local dir=$(date "+%Y-%m-%d")
+  if [ ! -d ~/memorandums/${dir} ]; then
+    mkdir ~/memorandums/${dir}
+  fi
+  if [ ! -n ${title} ]; then
+    exit 1
+  fi
+  nvim ~/memorandums/${dir}/${title}.md
+}
+
+function memos() {
+  ls ~/memorandums | fzf --preview="ls ~/memorandums/{}"
+}
+
+function memo-edit() {
+  local date=~/memorandums/${1}
+  ls ${date}
+}
+
+## bookmarks
+## ----------
+
+function bm() {
+  local target=$1
+  local name=$2
+  if [ $# -eq 1 ]; then
+    local path_tail=$(echo $target | awk -F'/' '{print $NF}')
+    ln -s $target $HOME/bookmarks/$path_tail
+  elif [ $# -eq 2 ]; then
+    ln -s $target $HOME/bookmarks/$name
+  fi
+}
+
+function cdbm() {
+  cd $HOME/bookmarks/$1
+}
+
+function _cdbm() {
+  _files -W $HOME/bookmarks/ && return 0;
+  return 1;
+}
+
+compdef _cdbm cdbm

@@ -15,13 +15,15 @@ alias date="gdate"
 alias env_template='cat .env | sed s/=.*/=/g > .env.template'
 alias soniq='sort | uniq'
 alias killp='kill $(ps | tail -n +2 | fzf | awk '\''{print $1}'\'')'
-alias uncolor='sed -r "s/\x1B\[([0-9]{1,2}(;[0-9]{1,2})?)?[m|K]//g"'
+alias uncolor='sed -E "s/\x1B\[([0-9]{1,2}(;[0-9]{1,2})?)?[m|K]//g"'
 alias wsr='sed '\''s/ /_/g'\'''
 
 ## ----------
 ## git
 ## ----------
 
+alias st="git status"
+alias gd="git diff"
 alias delb="git branch | fzf | xargs git branch -D"
 alias chb="git branch | fzf | xargs git checkout"
 alias commithash='git log --oneline | fzf | awk '\''{print $1}'\'''
@@ -54,6 +56,13 @@ alias ghqroot='cd $(ghq root)'
 alias v='nvim'
 alias vi='nvim'
 alias vim='nvim'
+
+## ----------
+## frontend
+## ----------
+
+alias npm-commands="cat package.json | jq .scripts"
+
 
 ## ----------
 ## other
