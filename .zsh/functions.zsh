@@ -25,6 +25,11 @@ function setenvvars() {
   done < $envfile
 }
 
+function local-sample() {
+  local file=$1
+  awk -F'=' '{printf "%s=",$1}' $file > $file.sample
+}
+
 ## history
 ## ----------
 
@@ -219,20 +224,6 @@ function awki() {
   local num=$1
   awk "{print \$${num}}"
 }
-
-function my-aliases() {
-  local aliases=$(cat $HOME/.zsh/aliases.zsh | grep -E "^alias" | sed 's/alias //g')
-  local names=$(echo $aliases | awk -F'=' '{print $1}')
-  echo $names
-  local cmds=$(echo $aliases | awk -F'=' '{print $2}' | sed 's/("|'\'')//g')
-  echo $cmds
-}
-
-#function my-functions() {
-#}
-#
-#function my-cmds() {
-#}
 
 function _get_hosts() {
   local hosts=$(cut -d' ' -f1  ~/.ssh/known_hosts | tr -d '[]' | tr ',' '\n' | cut -d: -f1)
