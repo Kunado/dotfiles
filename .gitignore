@@ -1,6 +1,6 @@
 */node_modules/
 node_modules/
-# hyper_plugins
 .hyper_plugins/cache/
 .zshrc.local
 .tmux.conf.local
+bin/mitamae*
