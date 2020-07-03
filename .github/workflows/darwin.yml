@@ -1,0 +1,17 @@
+name: install_and_test
+
+on: 
+  push:
+    branches:
+    - master
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [macOS-latest] 
+    steps:
+    - uses: actions/checkout@v1
+    - name: Check if curl is installed
+      run:  which curl
