@@ -21,6 +21,7 @@ jobs:
 #      run:  bash -c $(curl -fsSL https://raw.githubusercontent.com/Kunado/dotfiles/master/init.sh)
     - name: Execute install.sh
       run:  bash -c $(curl -fsSL https://raw.githubusercontent.com/Kunado/dotfiles/master/install.sh)
-
+    - name: Print all tools installed with brew
+      run:  brew list
     - name: Run tests for Darwin
       run:  bats --tap tests/darwin/**.bats
