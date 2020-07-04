@@ -13,5 +13,13 @@ jobs:
         os: [macOS-latest] 
     steps:
     - uses: actions/checkout@v1
-    - name: Check if curl is installed
-      run:  which curl
+    - name: Install HomeBrew
+      run:  |
+        ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+        brew doctor
+    - name: Install curl and bats with brew
+      run:  brew install curl bats
+    - name: Execute init.sh
+      run:  bash -c $(curl -fsSL https://raw.githubusercontent.com/Kunado/dotfiles/master/init.sh)
+    - name: Run tests for Darwin
+      run:  bats --tap tests/darwin/**.bats
