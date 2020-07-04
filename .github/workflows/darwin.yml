@@ -14,9 +14,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Install HomeBrew
-      run:  |
-        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-        brew doctor
+      run: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
     - name: Install curl and bats with brew
       run:  brew install curl bats
     - name: Execute init.sh
