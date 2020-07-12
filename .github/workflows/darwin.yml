@@ -12,10 +12,14 @@ jobs:
       matrix:
         os: [macOS-latest] 
     steps:
-    - uses: actions/checkout@v1
     - name: Install curl and bats with brew
       run:  brew install curl bats
     - name: Execute install.sh
-      run:  ./install.sh -y
+      run:  |
+        curl https://raw.githubusercontent.com/Kunado/dotfiles/master/install.sh > install.sh
+        chmod 755 install.sh
+        ./install.sh -y
     - name: Run tests for Darwin
-      run:  bats --tap tests/darwin/**.bats
+      run:  |
+        cd ~/dev/src/github.com/kunado/dotfiles
+        bats --tap tests/darwin/**.bats

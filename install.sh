@@ -45,11 +45,41 @@ if [ "$(uname)" = 'Darwin' ]; then
   fi
 fi
 
-curl https://raw.githubusercontent.com/Kunado/dotfiles/master/config/.gitconfig > $HOME/.gitconfig
+if [ ! -e ~/dev/src/github.com/kunado ]; then
+  mkdir -p ~/dev/src/github.com/kunado
+fi
+
+GITHUB_URL=https://github.com/kunado/dotfiles
+DOTPATH=~/dev/src/github.com/kunado/dotfiles
+
+git --version
+ret=$?
+if [ $ret -eq 0 ]; then
+  git clone $GITHUB_URL $DOTPATH
+else
+  tarball="${GITHUB_URL}/archive/master.tar.gz"
+  curl --version
+  ret=$?
+  if [ $ret -eq 0 ]; then
+    curl -L $tarball
+  else
+    wget --version
+    ret=$?
+    if [ $ret -eq 0 ]; then
+      wget -O - $tarball
+    fi
+  fi | tar zxv
+
+  mv -f dotfiles-master $DOTPATH
+fi
+
+cd ~/dev/src/github.com/kunado/dotfiles
+if [ $? -ne 0 ]; then
+  die "not found: ${DOTPATH}"
+fi
 
 bin/setup_mitamae.sh
 
-# Homebrew does not allow sudo.
 case "$(uname)" in
   "Darwin")  bin/mitamae local $@ lib/recipe.rb ;;
   *) sudo -E bin/mitamae local $@ lib/recipe.rb ;;
