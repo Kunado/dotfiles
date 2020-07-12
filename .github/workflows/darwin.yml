@@ -22,4 +22,5 @@ jobs:
     - name: Run tests for Darwin
       run:  |
         cd ~/dev/src/github.com/kunado/dotfiles
-        bats --tap tests/darwin/**.bats
+        bats --tap tests/darwin/*.bats
+        bats --tap tests/common/*.bats
