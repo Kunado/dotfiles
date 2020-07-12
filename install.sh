@@ -1,8 +1,20 @@
-#!/bin/sh
+#!/bin/bash
 
 set -eu
 
+while getopts y OPT
+do
+    case $OPT in
+      y) FLAG_Y=1;;
+    esac
+done
+
+shift $((OPTIND -1))
+
 is_setup() {
+  if [ $FLAG_Y -eq 1 ]; then
+    return 0
+  fi
   echo "Do you setup $1? [y/N]"
   while :
   do
@@ -25,7 +37,11 @@ if [ "$(uname)" = 'Darwin' ]; then
   fi
 
   if is_setup 'Homebrew'; then
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+    brew -v
+    ret=$?
+    if [ $ret -ne 0 ]; then
+      /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+    fi
   fi
 fi
 

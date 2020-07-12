@@ -13,19 +13,9 @@ jobs:
         os: [macOS-latest] 
     steps:
     - uses: actions/checkout@v1
-    - name: Install HomeBrew
-      run: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
     - name: Install curl and bats with brew
       run:  brew install curl bats
-#    - name: Execute init.sh
-#      run:  bash -c $(curl -fsSL https://raw.githubusercontent.com/Kunado/dotfiles/master/init.sh)
-#    - name: Execute install.sh
-#      run:  bash -c $(curl -fsSL https://raw.githubusercontent.com/Kunado/dotfiles/master/install.sh)
-    - name: Set up mitamae
-      run:  ./bin/setup_mitamae.sh
-    - name: Run mitamae
-      run:  ./bin/mitamae local $@ lib/recipe.rb
-    - name: Print all tools installed with brew
-      run:  brew list
+    - name: Execute install.sh
+      run:  ./install.sh -y
     - name: Run tests for Darwin
       run:  bats --tap tests/darwin/**.bats
