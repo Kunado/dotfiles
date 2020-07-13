@@ -1,9 +1,6 @@
 name: install_and_test-ubuntu
 
-on: 
-  push:
-    branches:
-    - master
+on: [push]
 
 jobs:
   build:
