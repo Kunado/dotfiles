@@ -3,7 +3,7 @@ name: install_and_test-macos
 on: [push]
 
 jobs:
-  build:
+  build-on-macos:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
