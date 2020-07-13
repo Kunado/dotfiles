@@ -1,0 +1,26 @@
+name: install_and_test-macos
+
+on: 
+  push:
+    branches:
+    - master
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [macOS-latest] 
+    steps:
+    - name: Install curl and bats with brew
+      run:  brew install curl bats
+    - name: Execute install.sh
+      run:  |
+        curl https://raw.githubusercontent.com/Kunado/dotfiles/master/install.sh > install.sh
+        chmod 755 install.sh
+        ./install.sh -y
+    - name: Run tests for Darwin
+      run:  |
+        cd ~/dev/src/github.com/kunado/dotfiles
+        bats --tap tests/macos/*.bats
+        bats --tap tests/common/*.bats
