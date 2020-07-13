@@ -1,8 +1,8 @@
 pull_request_rules:
   - name: Automatic merge on approval
     conditions:
-      - "status-success=build-on-macos"
-      - "status-success=build-on-ubnuntu"
+      - "status-success=build-on-macos (macOS-latest)"
+      - "status-success=build-on-ubuntu (ubuntu-latest)"
       - "label=automerge"
     actions:
       merge:
