@@ -3,7 +3,7 @@ name: install_and_test-ubuntu
 on: [push]
 
 jobs:
-  build:
+  build-on-ubuntu:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
