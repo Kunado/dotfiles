@@ -18,3 +18,10 @@
   run ghq --version
   [ "$?" -eq 0 ]
 }
+
+@test "zsh should be successfully installed with apt" {
+  run zsh --version
+  [ "$?" -eq 0 ]
+  dpkg --get-selections | grep zsh
+  [ "$?" -eq 0 ]
+}

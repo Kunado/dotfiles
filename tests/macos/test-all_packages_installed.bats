@@ -20,3 +20,10 @@
   brew list | grep ghq
   [ "$?" -eq 0 ]
 }
+
+@test "zsh should be successfully installed with brew" {
+  run zsh --version
+  [ "$?" -eq 0 ]
+  brew list | grep zsh
+  [ "$?" -eq 0 ]
+}
