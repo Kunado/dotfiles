@@ -1,2 +1,3 @@
 bin/mitamae*
 **/__pycache/__
+node_modules/
