@@ -8,8 +8,10 @@ RUN dnf install -y  \
 RUN mkdir -p /usr/local && \
     git clone https://github.com/sstephenson/bats.git
 
-WORKDIR bats
+WORKDIR /bats
 RUN ./install.sh /usr/local
+
+WORKDIR /
 
 COPY entrypoint.sh ./
 ENTRYPOINT ["./entrypoint.sh"]
