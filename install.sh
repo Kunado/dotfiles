@@ -54,29 +54,33 @@ DOTPATH=~/dev/src/github.com/kunado/dotfiles
 
 git --version
 ret=$?
-if [ $ret -eq 0 ]; then
-  git clone $GITHUB_URL $DOTPATH
-else
-  tarball="${GITHUB_URL}/archive/master.tar.gz"
-  curl --version
-  ret=$?
+if [ ! -e $DOTPATH ]; then
   if [ $ret -eq 0 ]; then
-    curl -L $tarball
+    git clone $GITHUB_URL $DOTPATH
   else
-    wget --version
+    tarball="${GITHUB_URL}/archive/master.tar.gz"
+    curl --version
     ret=$?
     if [ $ret -eq 0 ]; then
-      wget -O - $tarball
-    fi
-  fi | tar zxv
+      curl -L $tarball
+    else
+      wget --version
+      ret=$?
+      if [ $ret -eq 0 ]; then
+        wget -O - $tarball
+      fi
+    fi | tar zxv
 
-  mv -f dotfiles-master $DOTPATH
+    mv -f dotfiles-master $DOTPATH
+  fi
 fi
 
 cd ~/dev/src/github.com/kunado/dotfiles
 if [ $? -ne 0 ]; then
   die "not found: ${DOTPATH}"
 fi
+
+git pull
 
 bin/setup_mitamae.sh
 
