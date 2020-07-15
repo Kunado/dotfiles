@@ -2,6 +2,7 @@
 
 set -eu
 
+FLAG_Y=0
 while getopts y OPT
 do
     case $OPT in
@@ -80,7 +81,9 @@ if [ $? -ne 0 ]; then
   die "not found: ${DOTPATH}"
 fi
 
-git pull
+if [ $(git rev-parse --abbrev-ref HEAD) == master ]; then
+  git pull
+fi
 
 bin/setup_mitamae.sh
 
