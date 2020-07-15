@@ -6,9 +6,10 @@ RUN dnf install -y  \
       git \
       sudo
 RUN mkdir -p /usr/local && \
-    git clone https://github.com/sstephenson/bats.git && \
-    cd bats && \
-    ./install.sh /usr/local
+    git clone https://github.com/sstephenson/bats.git
+
+WORKDIR bats
+RUN ./install.sh /usr/local
 
 COPY entrypoint.sh ./
 ENTRYPOINT ["./entrypoint.sh"]
