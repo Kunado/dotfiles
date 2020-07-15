@@ -1,0 +1,17 @@
+name: install_and_test-centos
+
+on: [push]
+
+jobs:
+  build-on-centos:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+    steps:
+    - name: checkout repository
+      uses: actions/checkout@v1
+    - name: docker build
+      run:  docker build .cisupport/centos/ -t dotfiles-centos
+    - name: install and test
+      run:  docker run dotfiles-centos
