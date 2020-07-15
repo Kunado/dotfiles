@@ -12,6 +12,10 @@
   [ -e ~/.tmux.conf ]
 }
 
+@test ".tmux should be successfully located on home directory" {
+  [ -e ~/.tmux ]
+}
+
 @test ".zsh directory should be successfully located on home directory" {
   [ -e ~/.zsh ]
 }
