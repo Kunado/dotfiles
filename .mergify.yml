@@ -3,7 +3,7 @@ pull_request_rules:
     conditions:
       - "status-success=build-on-macos (macOS-latest)"
       - "status-success=build-on-ubuntu (ubuntu-latest)"
-      - "label=automerge"
+      - "status-success=build-on-centos (ubuntu-latest)"
     actions:
       merge:
         method: merge
