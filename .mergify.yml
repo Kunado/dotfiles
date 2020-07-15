@@ -4,6 +4,8 @@ pull_request_rules:
       - "status-success=build-on-macos (macOS-latest)"
       - "status-success=build-on-ubuntu (ubuntu-latest)"
       - "status-success=build-on-centos (ubuntu-latest)"
+      - "status-success=Hadolint"
+      - head~=^feature/
     actions:
       merge:
         method: merge
