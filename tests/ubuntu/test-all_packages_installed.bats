@@ -25,3 +25,10 @@
   dpkg --get-selections | grep zsh
   [ "$?" -eq 0 ]
 }
+
+@test "curl should be successfully installed with apt" {
+  run curl --version
+  [ "$?" -eq 0 ]
+  dpkg --get-selections | grep curl
+  [ "$?" -eq 0 ]
+}
