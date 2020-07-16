@@ -32,3 +32,10 @@
   dnf list --installed curl
   [ "$?" -eq 0 ]
 }
+
+@test "asdf should be successfully installed with apt" {
+  run asdf --version
+  [ "$?" -eq 0 ]
+  dnf list --installed asdf
+  [ "$?" -eq 0 ]
+}

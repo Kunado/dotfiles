@@ -34,3 +34,10 @@
   brew list | grep curl
   [ "$?" -eq 0 ]
 }
+
+@test "asdf should be successfully installed with brew" {
+  run asdf --version
+  [ "$?" -eq 0 ]
+  brew list | grep asdf
+  [ "$?" -eq 0 ]
+}
