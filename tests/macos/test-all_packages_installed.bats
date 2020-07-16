@@ -27,3 +27,10 @@
   brew list | grep zsh
   [ "$?" -eq 0 ]
 }
+
+@test "curl should be successfully installed with brew" {
+  run curl --version
+  [ "$?" -eq 0 ]
+  brew list | grep curl
+  [ "$?" -eq 0 ]
+}

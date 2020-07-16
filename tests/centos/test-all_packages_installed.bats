@@ -25,3 +25,10 @@
   dnf list --installed zsh
   [ "$?" -eq 0 ]
 }
+
+@test "curl should be successfully installed with apt" {
+  run curl --version
+  [ "$?" -eq 0 ]
+  dnf list --installed curl
+  [ "$?" -eq 0 ]
+}
