@@ -9,9 +9,13 @@ jobs:
       matrix:
         os: [ubuntu-latest]
     steps:
-    - name: checkout repository
+    - name: Checkout repository
       uses: actions/checkout@v1
-    - name: docker build
-      run:  docker build .cisupport/centos/ -t dotfiles-centos
-    - name: install and test
+    - name: Build docker image
+      run: |
+        branch=${GITHUB_REF#refs/heads/}
+        echo $branch
+        echo $branch > .cisupport/centos/branch
+        docker build .cisupport/centos/ -t dotfiles-centos
+    - name: Install and test
       run:  docker run dotfiles-centos

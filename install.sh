@@ -3,14 +3,23 @@
 set -eu
 
 FLAG_Y=0
-while getopts y OPT
+branch=master
+
+while getopts yb: OPT
 do
     case $OPT in
       y) FLAG_Y=1;;
+      b) branch=$OPTARG;;
+      *) ;;
     esac
 done
 
 shift $((OPTIND -1))
+
+die() {
+  echo "$@" >&2
+  exit 1
+}
 
 is_setup() {
   if [ $FLAG_Y -eq 1 ]; then
@@ -23,14 +32,14 @@ is_setup() {
     case $answer in
       'yes' | 'y') return 0;;
       [nN]o | [nN]) return 1 ;;
-      #*) echo "Try again because you input incorrect letter. Do you setup $1? [y/N]" ;;
+      *) echo "Try again because you input incorrect letter. Do you setup $1? [y/N]" ;;
     esac
   done
 }
 
 if [ "$(uname)" = 'Darwin' ]; then
   if is_setup 'Xcode Command Line Tools'; then
-    if [ -e $(xcode-select --print-path) ]; then
+    if [ -e "$(xcode-select --print-path)" ]; then
       echo 'Xcode Command Line Tools has already been installed'
     else
       xcode-select --install
@@ -59,20 +68,7 @@ if [ ! -e $DOTPATH ]; then
   if [ $ret -eq 0 ]; then
     git clone $GITHUB_URL $DOTPATH
   else
-    tarball="${GITHUB_URL}/archive/master.tar.gz"
-    curl --version
-    ret=$?
-    if [ $ret -eq 0 ]; then
-      curl -L $tarball
-    else
-      wget --version
-      ret=$?
-      if [ $ret -eq 0 ]; then
-        wget -O - $tarball
-      fi
-    fi | tar zxv
-
-    mv -f dotfiles-master $DOTPATH
+    die "git has not been installed."
   fi
 fi
 
@@ -81,13 +77,13 @@ if [ $? -ne 0 ]; then
   die "not found: ${DOTPATH}"
 fi
 
-if [ $(git rev-parse --abbrev-ref HEAD) == master ]; then
-  git pull
+if [ "${branch}" != master ]; then
+  git checkout "${branch}"
 fi
 
 bin/setup_mitamae.sh
 
 case "$(uname)" in
-  "Darwin")  bin/mitamae local $@ lib/recipe.rb ;;
-  *) sudo -E bin/mitamae local $@ lib/recipe.rb ;;
+  "Darwin")  bin/mitamae local "$@" lib/recipe.rb ;;
+  *) sudo -E bin/mitamae local "$@" lib/recipe.rb ;;
 esac
