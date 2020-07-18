@@ -8,7 +8,8 @@
   root = ~/dev/src
 [github]
   user = kunado
-[url "git@github.com:"]
-  insteadOf = https://github.com/
+#[url "git@github.com:"]
+#  pushInsteadOf = https://github.com/
+#  pushInsteadOf = git://github.com/
 [commit]
   template = ~/.commit_template
