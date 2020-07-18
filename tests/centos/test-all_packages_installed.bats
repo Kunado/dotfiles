@@ -47,3 +47,8 @@
   run fzf --version
   [ "$?" -eq 0 ]
 }
+
+@test "direnv should be successfully installed" {
+  run direnv --version
+  [ "$?" -eq 0 ]
+}

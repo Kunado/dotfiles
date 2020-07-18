@@ -47,3 +47,10 @@
   run fzf --version
   [ "$?" -eq 0 ]
 }
+
+@test "direnv should be successfully installed with apt" {
+  run direnv --version
+  [ "$?" -eq 0 ]
+  dpkg --get-selections | grep direnv
+  [ "$?" -eq 0 ]
+}
