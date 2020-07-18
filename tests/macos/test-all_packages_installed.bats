@@ -55,3 +55,10 @@
   brew list | grep fzf
   [ "$?" -eq 0 ]
 }
+
+@test "direnv hould be successfully installed with brew" {
+  run direnv -version
+  [ "$?" -eq 0 ]
+  brew list | grep direnv
+  [ "$?" -eq 0 ]
+}
