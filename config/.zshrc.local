@@ -1,0 +1,3 @@
+[ -f ~/.zshrc.local.darwin ] && source ~/.zshrc.local.darwin
+[ -f ~/.zshrc.local.redhat ] && source ~/.zshrc.local.redhat
+[ -f ~/.zshrc.local.ubuntu ] && source ~/.zshrc.local.ubuntu

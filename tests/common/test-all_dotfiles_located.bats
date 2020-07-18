@@ -24,6 +24,6 @@
   [ -e ~/.zshrc ]
 }
 
-@test ".zshrc.local.sample should be successfully located on home directory" {
-  [ -e ~/.zshrc.local.sample ]
+@test ".zshrc.local should be successfully located on home directory" {
+  [ -e ~/.zshrc.local ]
 }

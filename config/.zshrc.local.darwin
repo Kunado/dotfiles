@@ -1,13 +1,13 @@
 # zplug
 # in MacOS, it is installed with brew
-# export ZPLUG_HOME=/usr/local/opt/zplug
+export ZPLUG_HOME=/usr/local/opt/zplug
 
 # in other platforms, it is installed with git
 # export ZPLUG_HOME=
 
 # asdf
 # in MacOS, it is installed with brew
-# . $(brew --prefix asdf)/asdf.sh
+. $(brew --prefix asdf)/asdf.sh
 
 # in other platforms, it is installed with git
-# . $HOME/.asdf/asdf.sh
+# .$HOME/.asdf/asdf.sh
