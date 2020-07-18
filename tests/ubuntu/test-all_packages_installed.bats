@@ -38,9 +38,7 @@
   [ "$?" -eq 0 ]
 }
 
-#@test "asdf should be successfully installed with apt" {
-#  run asdf --version
-#  [ "$?" -eq 0 ]
-#  dpkg --get-selections | grep asdf
-#  [ "$?" -eq 0 ]
-#}
+@test "asdf should be successfully installed" {
+  run asdf --version
+  [ "$?" -eq 0 ]
+}

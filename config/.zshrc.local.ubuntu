@@ -10,4 +10,4 @@ export ZPLUG_HOME=/usr/loca/bin/.zplug
 # . $(brew --prefix asdf)/asdf.sh
 
 # in other platforms, it is installed with git
-. $HOME/.asdf/asdf.sh
+. /usr/local/bin/.asdf/asdf.sh
