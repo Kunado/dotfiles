@@ -10,4 +10,4 @@
 # . $(brew --prefix asdf)/asdf.sh
 
 # in other platforms, it is installed with git
-# . $HOME/.asdf/asdf.sh
+. $HOME/.asdf/asdf.sh
