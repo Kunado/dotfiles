@@ -42,3 +42,8 @@
   run asdf --version
   [ "$?" -eq 0 ]
 }
+
+@test "fzf should be successfully installed" {
+  run fzf --version
+  [ "$?" -eq 0 ]
+}

@@ -48,3 +48,10 @@
   brew list | grep zplug
   [ "$?" -eq 0 ]
 }
+
+@test "fzf should be successfully installed with brew" {
+  run fzf --version
+  [ "$?" -eq 0 ]
+  brew list | grep fzf
+  [ "$?" -eq 0 ]
+}
