@@ -41,3 +41,10 @@
   brew list | grep asdf
   [ "$?" -eq 0 ]
 }
+
+@test "zplug should be successfully installed with brew" {
+  run zplug
+  [ "$?" -eq 0 ]
+  brew list | grep zplug
+  [ "$?" -eq 0 ]
+}

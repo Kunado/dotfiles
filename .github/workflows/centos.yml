@@ -17,5 +17,7 @@ jobs:
         echo $branch
         echo $branch > .cisupport/centos/branch
         docker build .cisupport/centos/ -t dotfiles-centos
+        #- name: Setup tmate session
+        #  uses: mxschmitt/action-tmate@v1
     - name: Install and test
       run:  docker run dotfiles-centos

@@ -33,6 +33,11 @@
   [ "$?" -eq 0 ]
 }
 
+@test "zplug should be successfully installed" {
+  run zplug
+  [ "$?" -eq 0 ]
+}
+
 #@test "asdf should be successfully installed with apt" {
 #  run asdf --version
 #  [ "$?" -eq 0 ]

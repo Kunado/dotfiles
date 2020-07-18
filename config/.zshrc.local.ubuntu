@@ -3,7 +3,7 @@
 # export ZPLUG_HOME=/usr/local/opt/zplug
 
 # in other platforms, it is installed with git
-# export ZPLUG_HOME=
+export ZPLUG_HOME=/usr/loca/bin/.zplug
 
 # asdf
 # in MacOS, it is installed with brew
