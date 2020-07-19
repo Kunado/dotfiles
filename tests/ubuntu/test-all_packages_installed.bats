@@ -54,3 +54,10 @@
   dpkg --get-selections | grep direnv
   [ "$?" -eq 0 ]
 }
+
+@test "neovim should be successfully installed with apt" {
+  run nvim --version
+  [ "$?" -eq 0 ]
+  dpkg --get-selections | grep neovim
+  [ "$?" -eq 0 ]
+}

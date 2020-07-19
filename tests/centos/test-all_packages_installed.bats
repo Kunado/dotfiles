@@ -52,3 +52,8 @@
   run direnv --version
   [ "$?" -eq 0 ]
 }
+
+@test "neovim should be successfully installed" {
+  run nvim --version
+  [ "$?" -eq 0 ]
+}
