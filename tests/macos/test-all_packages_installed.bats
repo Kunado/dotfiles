@@ -79,3 +79,10 @@
   brew cask list | grep alacritty
   [ "$?" -eq 0 ]
 }
+
+@test "ffmpeg hould be successfully installed with brew" {
+  run ffmpeg -version
+  [ "$?" -eq 0 ]
+  brew list | grep ffmpeg
+  [ "$?" -eq 0 ]
+}
