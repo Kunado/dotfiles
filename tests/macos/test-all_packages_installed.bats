@@ -74,3 +74,8 @@
   run powerline-shell
   [ "$?" -eq 0 ]
 }
+
+@test "alacritty should be successfully installed with brew cask" {
+  brew cask list | grep alacritty
+  [ "$?" -eq 0 ]
+}
