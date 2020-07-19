@@ -62,3 +62,10 @@
   brew list | grep direnv
   [ "$?" -eq 0 ]
 }
+
+@test "nvim hould be successfully installed with brew" {
+  run nvim -version
+  [ "$?" -eq 0 ]
+  brew list | grep neovim
+  [ "$?" -eq 0 ]
+}
