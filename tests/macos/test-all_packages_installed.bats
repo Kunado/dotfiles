@@ -69,3 +69,8 @@
   brew list | grep neovim
   [ "$?" -eq 0 ]
 }
+
+@test "powerline should be successfully installed" {
+  run powerline-shell
+  [ "$?" -eq 0 ]
+}
