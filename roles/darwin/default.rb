@@ -11,3 +11,5 @@ include_cookbook 'fzf'
 include_cookbook 'direnv'
 include_cookbook 'neovim'
 include_cookbook 'powerline'
+include_cookbook 'alacritty'
+
