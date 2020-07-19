@@ -289,3 +289,12 @@ function _cdbm() {
 }
 
 compdef _cdbm cdbm
+
+## bookmarks
+## ----------
+
+function giffy() {
+  input=$1
+  output=${input/.mov/.gif}
+  ffmpeg -i $input -r 10 $output
+}
