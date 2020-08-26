@@ -6,10 +6,6 @@
 ## general
 ## ----------
 
-alias ls="ls -G"
-alias l="ls -la"
-alias la="ls -la"
-alias l1="ls -1"
 alias tree="tree -NC"
 alias date="gdate"
 alias env_template='cat .env | sed s/=.*/=/g > .env.template'
@@ -17,6 +13,25 @@ alias soniq='sort | uniq'
 alias killp='kill $(ps | tail -n +2 | fzf | awk '\''{print $1}'\'')'
 alias uncolor='sed -E "s/\x1B\[([0-9]{1,2}(;[0-9]{1,2})?)?[m|K]//g"'
 alias wsr='sed '\''s/ /_/g'\'''
+
+
+## ----------
+## ls
+## ----------
+
+alias ls="ls -G"
+alias l="ls -la"
+alias la="ls -la"
+alias l1="ls -1"
+
+if [ "$(command -v exa)" ]; then
+  unalias -m 'll'
+  unalias -m 'l'
+  unalias -m 'la'
+  unalias -m 'ls'
+  alias ls='exa -G --color auto --icons -a -s type'
+  alias ll='exa -l --color always --icons -a -s type'
+fi
 
 ## ----------
 ## git
