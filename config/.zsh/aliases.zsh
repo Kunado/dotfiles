@@ -33,6 +33,17 @@ if [ "$(command -v exa)" ]; then
   alias ll='exa -l --color always --icons -a -s type'
 fi
 
+
+## ----------
+## cat
+## ----------
+
+if [ "$(command -v bat)" ]; then
+  unalias -m 'cat'
+  alias cat='bat -pp --theme="Monokai Extended Origin"'
+fi
+
+
 ## ----------
 ## git
 ## ----------
