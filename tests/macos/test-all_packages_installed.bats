@@ -86,3 +86,10 @@
   brew list | grep ffmpeg
   [ "$?" -eq 0 ]
 }
+
+@test "fd hould be successfully installed with brew" {
+  run fd --version
+  [ "$?" -eq 0 ]
+  brew list | grep fd
+  [ "$?" -eq 0 ]
+}
