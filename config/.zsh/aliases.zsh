@@ -38,9 +38,9 @@ fi
 ## cat
 ## ----------
 
-if [ "$(command -v bat)" ]; then
+if [ "$(command -v batcat)" ]; then
   unalias -m 'cat'
-  alias cat='bat -pp --theme="Monokai Extended Origin"'
+  alias bat='batcat -pp --theme="Monokai Extended Origin"'
 fi
 
 
