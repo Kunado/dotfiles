@@ -6,31 +6,38 @@ define :dotfile, source: nil do
   end
 end
 
-define :github_binary, version: nil, repository: nil, archive: nil, binary_path: nil do
+define :github_binary, version: nil, repository: nil, asset: nil, binary_path: nil do
   cmd = params[:name]
   bin_path = "#{ENV['HOME']}/bin/#{cmd}"
-  archive = params[:archive]
-  url = "https://github.com/#{params[:repository]}/releases/download/#{params[:version]}/#{archive}"
+  asset = params[:asset]
+  archived = false
+  url = "https://github.com/#{params[:repository]}/releases/download/#{params[:version]}/#{asset}"
 
-  if archive.end_with?('.zip')
+  if asset.end_with?('.zip')
     extract = "unzip -o"
-  elsif archive.end_with?('.tar.gz')
+    archived = true
+  elsif asset.end_with?('.tar.gz')
     extract = "tar xvzf"
-  else
-    raise "unexpected ext archive: #{archive}"
+    archived = true
+  #else
+  #  raise "unexpected ext asset: #{asset}"
   end
 
   execute "mkdir -p #{ENV['HOME']}/bin/" do
     not_if "test -f #{ENV['HOME']}/bin/"
   end
 
-  execute "curl -fSL -o /tmp/#{archive} #{url}" do
+  execute "curl -fSL -o /tmp/#{asset} #{url}" do
     not_if "test -f #{bin_path}"
   end
-  execute "#{extract} /tmp/#{archive}" do
-    not_if "test -f #{bin_path}"
-    cwd "/tmp"
+
+  if archived
+    execute "#{extract} /tmp/#{asset}" do
+      not_if "test -f #{bin_path}"
+      cwd "/tmp"
+    end
   end
+
   execute "mv /tmp/#{params[:binary_path] || cmd} #{bin_path} && chmod +x #{bin_path}" do
     not_if "test -f #{bin_path}"
   end
