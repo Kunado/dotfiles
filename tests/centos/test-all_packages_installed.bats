@@ -62,3 +62,8 @@
   run powerline-shell
   [ "$?" -eq 0 ]
 }
+
+@test "fd should be successfully installed" {
+  run fd --version
+  [ "$?" -eq 0 ]
+}
