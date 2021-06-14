@@ -5,8 +5,6 @@
     "cwd",
     "git",
     "hg",
-    "jobs",
-    "root"
-  ],
-  "theme": "~/.config/powerline-shell/themes/basic.py"
+    "jobs"
+  ]
 }
