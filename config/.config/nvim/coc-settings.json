@@ -1,4 +1,10 @@
 {
-  "tsserver.enableJavascript": true,
-  "eslint.filetypes": ["javascript", "typescript", "typescriptreact", "javascriptreact", "typescript.tsx"]
+  "suggest.enablePreview": true,
+  "suggest.timeout": 5000,
+  "suggest.noselect": true,
+  "suggest.preferCompleteThanJumpPlaceholder": true,
+  "diagnostic.checkCurrentLine": true,
+  "diagnostic.warningSign": "--",
+  "languageserver": {
+  }
 }

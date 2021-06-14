@@ -2,16 +2,29 @@
 repo = 'Shougo/dein.vim'
 
 [[plugins]]
-repo = 'tomtom/tcomment_vim'
+repo = 'neoclide/coc.nvim'
+rev = 'release'
 
 [[plugins]]
-repo = 'nathanaelkane/vim-indent-guides'
+repo = 'antoinemadec/coc-fzf'
 
 [[plugins]]
-repo = 'vim-scripts/AnsiEsc.vim'
+repo = 'junegunn/vim-easy-align'
 
 [[plugins]]
-repo = 'bronson/vim-trailing-whitespace'
+repo = 'junegunn/fzf'
+build = './install --all'
+merged = '0'
+
+[[plugins]]
+repo = 'junegunn/fzf.vim'
+depends = 'fzf'
+
+[[plugins]]
+repo = 'SirVer/ultisnips'
+
+[[plugins]]
+repo = 'honza/vim-snippets'
 
 [[plugins]]
 repo = 'vim-airline/vim-airline'
@@ -21,59 +34,80 @@ depends = ['vim-airline-themes']
 repo = 'vim-airline/vim-airline-themes'
 
 [[plugins]]
-repo = 'tomasr/molokai'
+repo = 'ryanoasis/vim-devicons'
 
 [[plugins]]
-repo = 'Townk/vim-autoclose'
+repo = 'lambdalisue/fern.vim'
 
 [[plugins]]
-repo = 'cocopon/iceberg.vim'
+repo = 'lambdalisue/fern-git-status.vim'
+
+[[plugins]]
+repo = 'lambdalisue/nerdfont.vim'
+
+[[plugins]]
+repo = 'lambdalisue/fern-renderer-nerdfont.vim'
+
+[[plugins]]
+repo = 'lambdalisue/glyph-palette.vim'
+
+[[plugins]]
+repo = 'LumaKernel/fern-mapping-fzf.vim'
+depends = ['fzf', 'fern.vim']
 
 [[plugins]]
 repo = 'airblade/vim-gitgutter'
 
 [[plugins]]
+repo = 'bronson/vim-trailing-whitespace'
+
+[[plugins]]
+repo = 'markonm/traces.vim'
+
+[[plugins]]
+repo = 'simeji/winresizer'
+
+[[plugins]]
+repo = 'nathanaelkane/vim-indent-guides'
+
+[[plugins]]
+repo = 'dhruvasagar/vim-table-mode'
+
+[[plugins]]
+repo = 'jiangmiao/auto-pairs'
+
+[[plugins]]
+repo = 'tpope/vim-commentary'
+
+[[plugins]]
+repo = 'dense-analysis/ale'
+
+[[plugins]]
+repo = 'cocopon/iceberg.vim'
+hook_add = '''
+  syntax enable
+  set background=dark
+  colorscheme iceberg
+  highlight Normal ctermbg=NONE guibg=NONE
+  highlight NonText ctermbg=NONE guibg=NONE
+  highlight SpecialKey ctermbg=NONE guibg=NONE
+  highlight EndOfBuffer ctermbg=NONE guibg=NONE
+'''
+
+[[plugins]]
 repo = 'cespare/vim-toml'
 
 [[plugins]]
-repo = 'othree/yajs.vim'
+repo = 'luochen1990/rainbow'
 
 [[plugins]]
-repo = 'Shougo/vimfiler'
+repo = 'maxmellon/vim-jsx-pretty'
 
 [[plugins]]
-repo = 'Shougo/unite.vim'
+repo = 'andrewradev/switch.vim'
 
 [[plugins]]
-repo = 'Shougo/vimproc'
+repo = 'vim-scripts/AnsiEsc.vim'
 
 [[plugins]]
-repo = 'ryanoasis/vim-devicons'
-
-[[plugins]]
-repo = 'scrooloose/nerdtree'
-
-[[plugins]]
-repo = 'scrooloose/syntastic'
-
-[[plugins]]
-repo = 'w0rp/ale'
-
-[[plugins]]
-repo = 'ErichDonGubler/vim-sublime-monokai'
-
-[[plugins]]
-repo = 'vim-latex/vim-latex'
-
-[[plugins]]
-repo = 'neovimhaskell/haskell-vim'
-
-[[plugins]]
-repo = 'neoclide/coc.nvim'
-rev = 'release'
-on_i = 1
-merged = '0'
-hook_add = 'source ~/.config/nvim/coc-options.vim'
-
-[[plugins]]
-repo = 'thinca/vim-quickrun'
+repo = 'editorconfig/editorconfig-vim'
