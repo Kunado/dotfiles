@@ -1,3 +1,60 @@
 [ -f ~/.zshrc.local.darwin ] && source ~/.zshrc.local.darwin
 [ -f ~/.zshrc.local.redhat ] && source ~/.zshrc.local.redhat
 [ -f ~/.zshrc.local.ubuntu ] && source ~/.zshrc.local.ubuntu
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export PATH=/home/linuxbrew/.linuxbrew/bin:$PATH
+export PATH=$HOME/bin:$PATH
+export PATH=$HOME/.bin:$PATH
+export PATH=$HOME/.asdf/installs/nodejs/15.5.1/.npm/bin:$PATH
+
+function __zsh_tmux_split_vertical() {
+  tmux split-window
+}
+
+zle -N __zsh_tmux_split_vertical
+bindkey '^F' __zsh_tmux_split_vertical
+
+
+function __zsh_tmux_split_holizontal() {
+  tmux split-window -h
+}
+
+zle -N __zsh_tmux_split_holizontal
+bindkey '^D' __zsh_tmux_split_holizontal
+
+
+function __zsh_tmux_new_window() {
+  tmux new-window
+}
+
+zle -N __zsh_tmux_new_window
+bindkey '^T' __zsh_tmux_new_window
+
+
+function __zsh_tmux_previous_window() {
+  tmux previous-window
+}
+
+zle -N __zsh_tmux_previous_window
+bindkey '^H' __zsh_tmux_previous_window
+
+
+function __zsh_tmux_next_window() {
+  tmux next-window
+}
+
+zle -N __zsh_tmux_next_window
+bindkey '^L' __zsh_tmux_next_window
+
+
+function __zsh_tmux_close_window() {
+  tmux kill-pane
+  }
+
+zle -N __zsh_tmux_close_window
+bindkey '^W' __zsh_tmux_close_window
+
+alias pbcopy='clip.exe'
+alias open='wsl-open'
