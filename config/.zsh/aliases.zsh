@@ -94,7 +94,6 @@ alias npm-commands="cat package.json | jq .scripts"
 ## other
 ## ----------
 
-alias latexmk="latexmk -pvc"
 alias ghci="stack ghci"
 alias hl="highlight"
 alias echopaths="echo $PATH | tr ':' '\n'"

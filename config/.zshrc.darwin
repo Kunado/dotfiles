@@ -11,3 +11,4 @@ export ZPLUG_HOME=/usr/local/opt/zplug
 
 # in other platforms, it is installed with git
 # .$HOME/.asdf/asdf.sh
+export PATH=/Users/naoki-saruta/.asdf/installs/python/3.9.2/bin/:$PATH

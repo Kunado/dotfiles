@@ -2,4 +2,6 @@
 node_modules/
 .hyper_plugins/cache/
 .tmux.conf.local
-bin/mitamae*
+.config/configstore
+.tool-versions
+.zshrc.local

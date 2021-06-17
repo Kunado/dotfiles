@@ -1,13 +1,16 @@
-[ -f ~/.zshrc.local.darwin ] && source ~/.zshrc.local.darwin
-[ -f ~/.zshrc.local.redhat ] && source ~/.zshrc.local.redhat
-[ -f ~/.zshrc.local.ubuntu ] && source ~/.zshrc.local.ubuntu
+# zplug
+# in MacOS, it is installed with brew
+# export ZPLUG_HOME=/usr/local/opt/zplug
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# in other platforms, it is installed with git
+export ZPLUG_HOME=/usr/local/bin/.zplug
 
-export PATH=/home/linuxbrew/.linuxbrew/bin:$PATH
-export PATH=$HOME/bin:$PATH
-export PATH=$HOME/.bin:$PATH
-export PATH=$HOME/.asdf/installs/nodejs/15.5.1/.npm/bin:$PATH
+# asdf
+# in MacOS, it is installed with brew
+# . $(brew --prefix asdf)/asdf.sh
+
+# in other platforms, it is installed with git
+. /usr/local/bin/.asdf/asdf.sh
 
 function __zsh_tmux_split_vertical() {
   tmux split-window

@@ -19,8 +19,6 @@ export HISTSIZE=10000
 ## ------------------
 
 export EDITOR=$(which nvim)
-export PAGER=vimpager
-export MANPAGER=vimpager
 
 
 ## XDG Base Directory Specification
@@ -38,8 +36,6 @@ export FZF_DEFAULT_OPTS="--reverse -m --ansi --cycle --select-1 --exit-0 --bind=
 ## ------------------
 
 export H=$HOME
-export D=$HOME/Downloads
-export L=$HOME/dev/src/github.com/kunado/latex-template
 
 ### PATH
 ### -----------------
