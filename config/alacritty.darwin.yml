@@ -11,6 +11,8 @@ env:
   # check the local terminfo database and use `alacritty` if it is
   # available, otherwise `xterm-256color` is used.
   TERM: xterm-256color
+  LC_CTYPE: en_US.UTF-8
+  LANG: en_US.UTF-8
 
 #window:
   # Window dimensions (changes require restart)
@@ -109,7 +111,7 @@ font:
     #   - (macOS) Menlo
     #   - (Linux) monospace
     #   - (Windows) Consolas
-    family: 'RictyDiminishedDiscord Nerd Font'
+    family: 'RictyDiminishedDiscord NF'
 
     # The `style` can be specified to pick a specific face.
     style: Regular
@@ -120,7 +122,7 @@ font:
     #
     # If the bold family is not specified, it will fall back to the
     # value specified for the normal font.
-    family: 'RictyDiminishedDiscord Nerd Font'
+    family: 'RictyDiminishedDiscord NF'
 
     # The `style` can be specified to pick a specific face.
     style: Bold
@@ -131,7 +133,7 @@ font:
     #
     # If the italic family is not specified, it will fall back to the
     # value specified for the normal font.
-    family: 'RictyDiminishedDiscord Nerd Font'
+    family: 'RictyDiminishedDiscord NF'
 
     # The `style` can be specified to pick a specific face.
     style: Italic
@@ -142,13 +144,13 @@ font:
     #
     # If the bold italic family is not specified, it will fall back to the
     # value specified for the normal font.
-    family: 'RictyDiminishedDiscord Nerd Font'
+    family: 'RictyDiminishedDiscord NF'
 
     # The `style` can be specified to pick a specific face.
     style: Bold Italic
 
   # Point size
-  size: 16
+  size: 14
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
@@ -290,7 +292,7 @@ font:
 #
 # Window opacity as a floating point number from `0.0` to `1.0`.
 # The value `0.0` is completely transparent and `1.0` is opaque.
-background_opacity: 0.95
+background_opacity: 0.5
 
 #selection:
   #semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
@@ -576,30 +578,60 @@ key_bindings:
   - { key: W, mods: Command, command: {program: "/usr/local/bin/tmux", args: ["kill-pane"]} }
 
 # Colors (Monokai Dark)
+#colors:
+#  # Default colors
+#  primary:
+#    background: '0x272822'
+#    foreground: '0xF8F8F2'
+#
+#  # Normal colors
+#  normal:
+#   black:   '0x272822'
+#   red:     '0xF92672'
+#   green:   '0xA6E22E'
+#   yellow:  '0xF4BF75'
+#   blue:    '0x66D9EF'
+#   magenta: '0xAE81FF'
+#   cyan:    '0xA1EFE4'
+#   white:   '0xF8F8F2'
+#
+#  # Bright colors
+#  bright:
+#   black:   '0x75715E'
+#   red:     '0xF92672'
+#   green:   '0xA6E22E'
+#   yellow:  '0xF4BF75'
+#   blue:    '0x66D9EF'
+#   magenta: '0xAE81FF'
+#   cyan:    '0xA1EFE4'
+#   white:   '0xF9F8F5'
+
+# Colors (Iceberg Dark)
+
 colors:
   # Default colors
   primary:
-    background: '0x272822'
-    foreground: '0xF8F8F2'
+    background: '#161821'
+    foreground: '#d2d4de'
 
   # Normal colors
   normal:
-   black:   '0x272822'
-   red:     '0xF92672'
-   green:   '0xA6E22E'
-   yellow:  '0xF4BF75'
-   blue:    '0x66D9EF'
-   magenta: '0xAE81FF'
-   cyan:    '0xA1EFE4'
-   white:   '0xF8F8F2'
+    black:   '#161821'
+    red:     '#e27878'
+    green:   '#b4be82'
+    yellow:  '#e2a478'
+    blue:    '#84a0c6'
+    magenta: '#a093c7'
+    cyan:    '#89b8c2'
+    white:   '#c6c8d1'
 
   # Bright colors
   bright:
-   black:   '0x75715E'
-   red:     '0xF92672'
-   green:   '0xA6E22E'
-   yellow:  '0xF4BF75'
-   blue:    '0x66D9EF'
-   magenta: '0xAE81FF'
-   cyan:    '0xA1EFE4'
-   white:   '0xF9F8F5'
+    black:   '#6b7089'
+    red:     '#e98989'
+    green:   '#c0ca8e'
+    yellow:  '#e9b189'
+    blue:    '#91acd1'
+    magenta: '#ada0d3'
+    cyan:    '#95c4ce'
+    white:   '#d2d4de'
