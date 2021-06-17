@@ -1,20 +1,35 @@
 # zsh settings
 # -------------------
 
+
+## auto completion
+## ----------
+
+autoload -Uz compinit
+compinit
+
+
 ## load environmental variables, aliases and functions
 ## ----------
-[ -f ~/.zshrc.local ] && source ~/.zshrc.local
+
 [ -f ~/.zsh/aliases.zsh ] && source ~/.zsh/aliases.zsh
 [ -f ~/.zsh/functions.zsh ] && source ~/.zsh/functions.zsh
 [ -f ~/.zsh/envvars.zsh ] && source ~/.zsh/envvars.zsh
 [ -f ~/.zsh/zplug.zsh ] && source ~/.zsh/zplug.zsh
 [ -f ~/.zsh/tmux.zsh ] && source ~/.zsh/tmux.zsh
-## auto completion
+
+
+## settings for each environment
 ## ----------
 
-autoload -U compinit
-compinit
+[ -f ~/.zshrc.darwin ] && source ~/.zshrc.darwin
+[ -f ~/.zshrc.ubuntu ] && source ~/.zshrc.ubuntu
+[ -f ~/.zshrc.redhat ] && source ~/.zshrc.redhat
+[ -f ~/.zshrc.local ] && source ~/.zshrc.local
+
+
 setopt correct
+
 
 ### return directories previously accessed with cd -[tab]
 ### -----
