@@ -11,3 +11,53 @@ export ZPLUG_HOME=/usr/local/bin/.zplug
 
 # in other platforms, it is installed with git
 . /usr/local/bin/.asdf/asdf.sh
+
+function __zsh_tmux_split_vertical() {
+  tmux split-window
+}
+
+zle -N __zsh_tmux_split_vertical
+bindkey '^F' __zsh_tmux_split_vertical
+
+
+function __zsh_tmux_split_holizontal() {
+  tmux split-window -h
+}
+
+zle -N __zsh_tmux_split_holizontal
+bindkey '^D' __zsh_tmux_split_holizontal
+
+
+function __zsh_tmux_new_window() {
+  tmux new-window
+}
+
+zle -N __zsh_tmux_new_window
+bindkey '^T' __zsh_tmux_new_window
+
+
+function __zsh_tmux_previous_window() {
+  tmux previous-window
+}
+
+zle -N __zsh_tmux_previous_window
+bindkey '^H' __zsh_tmux_previous_window
+
+
+function __zsh_tmux_next_window() {
+  tmux next-window
+}
+
+zle -N __zsh_tmux_next_window
+bindkey '^L' __zsh_tmux_next_window
+
+
+function __zsh_tmux_close_window() {
+  tmux kill-pane
+  }
+
+zle -N __zsh_tmux_close_window
+bindkey '^W' __zsh_tmux_close_window
+
+alias pbcopy='clip.exe'
+alias open='wsl-open'
