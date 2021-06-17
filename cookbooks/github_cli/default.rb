@@ -8,3 +8,9 @@ elsif node[:platform] == 'ubuntu' || node[:platform] == 'redhat'
     binary_path "gh_1.11.0_linux_amd64/bin/gh"
   end
 end
+
+execute "mkdir -p #{ENV['HOME']}/.config" do
+  not_if "test -f #{ENV['HOME']}/.config"
+end
+
+dotfile '.config/gh'

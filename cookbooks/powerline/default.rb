@@ -22,3 +22,9 @@ execute "python setup.py install" do
   only_if "test -f #{path}"
   cwd path
 end
+
+execute "mkdir -p #{ENV['HOME']}/.config" do
+  not_if "test -f #{ENV['HOME']}/.config"
+end
+
+dotfile '.config/powerline-shell'
