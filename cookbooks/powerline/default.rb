@@ -18,8 +18,11 @@ else
   end
 end
 
-execute "python setup.py install" do
-  only_if "test -f #{path}"
+execute "mkdir -p #{ENV['HOME']}/bin" do
+  not_if "test -f #{ENV['HOME']}/bin"
+end
+
+execute "python setup.py install --home=#{ENV['HOME']}" do
   cwd path
 end
 
