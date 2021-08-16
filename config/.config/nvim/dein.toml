@@ -105,3 +105,12 @@ repo = 'vim-scripts/AnsiEsc.vim'
 
 [[plugins]]
 repo = 'editorconfig/editorconfig-vim'
+
+[[plugins]]
+repo = 'tpope/vim-surround'
+
+[[plugins]]
+repo = 'qpkorr/vim-bufkill'
+
+[[plugins]]
+repo = 'nvim-treesitter/nvim-treesitter'

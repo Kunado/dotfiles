@@ -48,8 +48,9 @@ fi
 ## git
 ## ----------
 
-alias st="git status"
-alias gd="git diff"
+alias g="git"
+alias gt="git"
+alias gi="git"
 alias delb="git branch | fzf | xargs git branch -D"
 alias chb="git branch | fzf | xargs git checkout"
 alias commithash='git log --oneline | fzf | awk '\''{print $1}'\'''
@@ -76,12 +77,20 @@ alias ghqroot='cd $(ghq root)'
 
 
 ## ----------
+## gh
+## ----------
+
+alias prls='gh pr list'
+alias prnum='prls | fzf | awk '\''{print $1}'\'''
+
+
+## ----------
 ## vim
 ## ----------
 
-alias v='nvim'
 alias vi='nvim'
 alias vim='nvim'
+
 
 ## ----------
 ## frontend
@@ -98,11 +107,9 @@ alias ghci="stack ghci"
 alias hl="highlight"
 alias echopaths="echo $PATH | tr ':' '\n'"
 
+
 ## ----------
 ## alias for GUI apps
 ## ----------
 
 alias chrome="open -g -a /Applications/Google\ Chrome.app"
-alias tabletool="open -g -a /usr/local/Caskroom/table-tool/1.2.1/Table\ Tool.app"
-alias tt="tabletool"
-alias skim="open -a skim"
