@@ -28,6 +28,7 @@ let g:ale_fixers = {
 \  'typescript': ['prettier'],
 \  'json': ['prettier'],
 \  'typescriptreact': ['prettier'],
+\  'rust': ['rustfmt'],
 \}
 
 let g:ale_typescript_prettier_use_local_config = 1
