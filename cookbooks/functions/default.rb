@@ -13,15 +13,8 @@ define :github_binary, version: nil, repository: nil, asset: nil, binary_path: n
   archived = false
   url = "https://github.com/#{params[:repository]}/releases/download/#{params[:version]}/#{asset}"
 
-  if asset.end_with?('.zip')
-    extract = "unzip -o"
-    archived = true
-  elsif asset.end_with?('.tar.gz')
-    extract = "tar xvzf"
-    archived = true
-  #else
-  #  raise "unexpected ext asset: #{asset}"
-  end
+  extractor, archived = "unzip -o", true if asset.end_with?('.zip')
+  extractor, archived = "tar xvzf", true if asset.end_with?('.tar.gz')
 
   execute "mkdir -p #{ENV['HOME']}/bin/" do
     not_if "test -f #{ENV['HOME']}/bin/"
@@ -32,7 +25,7 @@ define :github_binary, version: nil, repository: nil, asset: nil, binary_path: n
   end
 
   if archived
-    execute "#{extract} /tmp/#{asset}" do
+    execute "#{extractor} /tmp/#{asset}" do
       not_if "test -f #{bin_path}"
       cwd "/tmp"
     end
