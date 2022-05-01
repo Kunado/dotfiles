@@ -1,13 +1,20 @@
 #!/bin/sh
 set -eu
 
-version='1.7.5'
+version='1.12.9'
 mitamae_version="mitamae-${version}"
 
 if ! [ -f "bin/${mitamae_version}" ]; then
   case "$(uname)" in
     "Darwin")
-      mitamae_bin="mitamae-x86_64-darwin"
+      case "$(uname -m)" in
+        "arm64")
+          mitamae_bin="mitamae-aarch64-darwin"
+        ;;
+        "86_64")
+          mitamae_bin="mitamae-x86_64-darwin"
+        ;;
+      esac
       ;;
     "Linux")
       mitamae_bin="mitamae-x86_64-linux"
