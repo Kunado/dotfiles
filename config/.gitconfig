@@ -13,6 +13,8 @@
 [alias]
   empty-commit = commit --allow-empty -m "empty"
   diff-staged = diff --cached
+  s = status
+  l = log
 [ghq]
   root = ~/dev/src
 [github]
@@ -22,3 +24,5 @@
   pushInsteadOf = git://github.com/
 [commit]
   template = ~/.commit_template
+[push]
+	default = current
