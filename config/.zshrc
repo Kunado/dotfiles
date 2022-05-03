@@ -9,6 +9,15 @@ autoload -Uz compinit
 compinit
 
 
+## settings for each environment
+## ----------
+
+[ -f ~/.zshrc.local ] && source ~/.zshrc.local
+[ -f ~/.zshrc.darwin ] && source ~/.zshrc.darwin
+[ -f ~/.zshrc.ubuntu ] && source ~/.zshrc.ubuntu
+[ -f ~/.zshrc.redhat ] && source ~/.zshrc.redhat
+
+
 ## load environmental variables, aliases and functions
 ## ----------
 
@@ -17,15 +26,6 @@ compinit
 [ -f ~/.zsh/envvars.zsh ] && source ~/.zsh/envvars.zsh
 [ -f ~/.zsh/zplug.zsh ] && source ~/.zsh/zplug.zsh
 [ -f ~/.zsh/tmux.zsh ] && source ~/.zsh/tmux.zsh
-
-
-## settings for each environment
-## ----------
-
-[ -f ~/.zshrc.darwin ] && source ~/.zshrc.darwin
-[ -f ~/.zshrc.ubuntu ] && source ~/.zshrc.ubuntu
-[ -f ~/.zshrc.redhat ] && source ~/.zshrc.redhat
-[ -f ~/.zshrc.local ] && source ~/.zshrc.local
 
 
 setopt correct
