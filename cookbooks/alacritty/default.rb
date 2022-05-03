@@ -8,10 +8,12 @@ if node[:platform] == 'darwin'
   end
   dotfile '.config/alacritty/alacritty.yml' do
     source 'alacritty.darwin.yml'
+    not_if "test -f #{ENV['HOME']}/.config/alacritty/alacritty.yml"
   end
 elsif node[:platform] == 'ubuntu'
   dotfile 'alacritty.yml' do
     source 'alacritty.ubuntu.yml'
+    not_if "test -f #{ENV['HOME']}/alacritty.yml"
   end
 else
   raise NotImplementedError

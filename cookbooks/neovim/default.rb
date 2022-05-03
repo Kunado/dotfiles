@@ -13,5 +13,9 @@ execute "mkdir -p #{ENV['HOME']}/.config" do
   not_if "test -f #{ENV['HOME']}/.config"
 end
 
-dotfile '.config/nvim'
-dotfile '.config/coc'
+dotfile '.config/nvim' do
+  not_if "test -d #{ENV['HOME']}/.config/nvim"
+end
+dotfile '.config/coc' do
+  not_if "test -d #{ENV['HOME']}/.config/coc"
+end

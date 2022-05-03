@@ -24,4 +24,6 @@ else
   end
 end
 
-dotfile '.tool-versions'
+dotfile '.tool-versions' do
+  not_if "test -f #{ENV['HOME']}/.tool-versions"
+end

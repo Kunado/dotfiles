@@ -7,5 +7,9 @@ if node[:platform] == 'darwin'
   end
 end
 
-dotfile '.gitconfig'
-dotfile '.gitignore'
+dotfile '.gitconfig' do
+  not_if "test -f #{ENV['HOME']}/.gitconfig"
+end
+dotfile '.gitignore' do
+  not_if "test -f #{ENV['HOME']}/.gitignore"
+end

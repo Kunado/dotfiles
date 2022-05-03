@@ -13,4 +13,6 @@ execute "mkdir -p #{ENV['HOME']}/.config" do
   not_if "test -f #{ENV['HOME']}/.config"
 end
 
-dotfile '.config/gh'
+dotfile '.config/gh' do
+  not_if "test -d #{ENV['HOME']}/.config/gh"
+end
