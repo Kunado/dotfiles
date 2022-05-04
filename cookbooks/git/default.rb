@@ -8,8 +8,8 @@ if node[:platform] == 'darwin'
 end
 
 dotfile '.gitconfig' do
-  not_if "test -f #{ENV['HOME']}/.gitconfig"
+  not_if "test -L #{ENV['HOME']}/.gitconfig"
 end
 dotfile '.gitignore' do
-  not_if "test -f #{ENV['HOME']}/.gitignore"
+  not_if "test -L #{ENV['HOME']}/.gitignore"
 end

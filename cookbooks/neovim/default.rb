@@ -10,12 +10,12 @@ elsif node[:platform] == 'redhat'
 end
 
 execute "mkdir -p #{ENV['HOME']}/.config" do
-  not_if "test -f #{ENV['HOME']}/.config"
+  not_if "test -d #{ENV['HOME']}/.config"
 end
 
 dotfile '.config/nvim' do
-  not_if "test -d #{ENV['HOME']}/.config/nvim"
+  not_if "test -L #{ENV['HOME']}/.config/nvim"
 end
 dotfile '.config/coc' do
-  not_if "test -d #{ENV['HOME']}/.config/coc"
+  not_if "test -L #{ENV['HOME']}/.config/coc"
 end

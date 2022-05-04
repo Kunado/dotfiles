@@ -10,9 +10,9 @@ elsif node[:platform] == 'ubuntu' || node[:platform] == 'redhat'
 end
 
 execute "mkdir -p #{ENV['HOME']}/.config" do
-  not_if "test -f #{ENV['HOME']}/.config"
+  not_if "test -d #{ENV['HOME']}/.config"
 end
 
 dotfile '.config/gh' do
-  not_if "test -d #{ENV['HOME']}/.config/gh"
+  not_if "test -L #{ENV['HOME']}/.config/gh"
 end
