@@ -54,7 +54,7 @@ alias gi="git"
 alias delb="git branch | fzf | xargs git branch -D"
 alias chb="git branch | fzf | xargs git checkout"
 alias commithash='git log --oneline | fzf | awk '\''{print $1}'\'''
-alias github='hub browse $(git remote -v | head -1 | awk '\''{print $2}'\'' | cut -d "/" -f 4,5)'
+alias github='gh repo view --web'
 
 
 ## ----------
