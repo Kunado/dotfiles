@@ -1,0 +1,11 @@
+#!/bin/sh
+
+# Execute all scripts in pre-push.d directory.
+for script in $(ls .git/hooks/pre-push.d); do
+    sh .git/hooks/pre-push.d/${script}
+    # Cancel pushing when a script returned exit code other than 0.
+    result="$?"
+    if [ "${result}" != 0 ]; then
+        exit "${result}"
+    fi
+done

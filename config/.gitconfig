@@ -33,3 +33,5 @@
   template = ~/.commit_template
 [push]
 	default = current
+[init]
+	templatedir = ~/.git_template

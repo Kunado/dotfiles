@@ -10,6 +10,11 @@ end
 dotfile '.gitconfig' do
   not_if "test -L #{ENV['HOME']}/.gitconfig"
 end
+
 dotfile '.gitignore' do
   not_if "test -L #{ENV['HOME']}/.gitignore"
+end
+
+dotfile '.git_template' do
+  not_if "test -L #{ENV['HOME']}/.git_template"
 end
