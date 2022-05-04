@@ -15,6 +15,13 @@
   diff-staged = diff --cached
   s = status
   l = log
+  cm = commit
+  co = checkout
+  d = diff
+  a = add
+  fix = commit --fixup
+  as = rebase -i --autosquash
+  uncommit = reset --soft HEAD^
 [ghq]
   root = ~/dev/src
 [github]
