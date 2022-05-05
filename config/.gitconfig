@@ -12,7 +12,7 @@
   email = katsusand1@gmail.com
 [alias]
   empty-commit = commit --allow-empty -m "empty"
-  diff-staged = diff --cached
+  staged-diff = diff --cached
   s = status
   l = log
   cm = commit
@@ -20,8 +20,19 @@
   d = diff
   a = add
   fix = commit --fixup
+  fixit = commit --amend --no-edit
   as = rebase -i --autosquash
   uncommit = reset --soft HEAD^
+  com = "! f() { remote_head=$(git symbolic-ref --quiet refs/remotes/origin/HEAD); remote_head=${remote_head#refs/remotes/origin/}; git checkout ${remote_head:-$(git rev-parse --symbolic --verify --quiet main || git rev-parse --symbolic --verify --quiet master)}; }; f"
+  r = !git reflog -n 50 --pretty='format:%gs' | perl -anal -e '$seen{$1}++ or print $1 if /checkout:.*to (.+)/'
+  sha = "!f() { git rev-parse \"${1-HEAD}\"; }; f"
+  alias = "!git config --get-regexp '^alias\\.' | sed 's/alias\\.\\([^ ]*\\) \\(.*\\)/\\1\\\t => \\2/' | sort"
+  st-pull = "!git stash && git pull && git stash pop"
+  tags = tag -l
+  remotes = remote -v
+  open = "!gh browse -b $(git symbolic-ref --short HEAD)"
+  ls-conflict = "!git ls-files -u | cut -f2 | uniq"
+  bang = "!git clean -df && git reset --hard"
 [ghq]
   root = ~/dev/src
 [github]
