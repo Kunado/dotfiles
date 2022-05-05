@@ -23,6 +23,7 @@ include_cookbook 'tree'
 include_cookbook 'gitnow'
 include_cookbook 'git-delta'
 
+# casks
 include_cookbook '1password'
 #include_cookbook 'alacritty'
 include_cookbook 'discord'
@@ -33,3 +34,4 @@ include_cookbook 'sidekick'
 include_cookbook 'slack'
 include_cookbook 'zoom'
 include_cookbook 'keycastr'
+include_cookbook 'ticktick'
