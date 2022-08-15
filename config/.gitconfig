@@ -12,7 +12,11 @@
   email = katsusand1@gmail.com
 [alias]
   empty-commit = commit --allow-empty -m "empty"
-  staged-diff = diff --cached
+  srestore = restore --staged
+  staged-diff = diff --staged
+  sdiff = diff --staged
+  head-diff = diff HEAD^ HEAD
+  hdiff = dff HEAD^ HEAD
   s = status
   l = log
   cm = commit
