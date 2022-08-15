@@ -114,3 +114,26 @@ repo = 'qpkorr/vim-bufkill'
 
 [[plugins]]
 repo = 'nvim-treesitter/nvim-treesitter'
+
+[[plugins]]
+repo = 'nelstrom/vim-visual-star-search'
+
+[[plugins]]
+repo = 'neoclide/coc-tsserver'
+build = 'yarn install --frozen-lockfile'
+
+[[plugins]]
+repo = 'fannheyward/coc-rust-analyzer'
+build = 'yarn install --frozen-lockfile'
+
+[[plugins]]
+repo = 'neoclide/coc-json'
+build = 'yarn install --frozen-lockfile'
+
+[[plugins]]
+repo = 'josa42/coc-go'
+build = 'yarn install --frozen-lockfile'
+
+[[plugins]]
+repo = 'yaegassy/coc-typeprof'
+build = 'yarn install --frozen-lockfile'

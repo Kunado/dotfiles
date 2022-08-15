@@ -32,6 +32,7 @@ set expandtab
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
+set foldmethod=indent
 
 " visual config
 set termguicolors
@@ -56,3 +57,6 @@ set hlsearch
 set incsearch
 set smartcase
 set wrapscan
+
+vnoremap > >gv
+vnoremap < <gv

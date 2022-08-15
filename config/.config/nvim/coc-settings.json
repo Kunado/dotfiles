@@ -10,6 +10,11 @@
       "command": "gopls",
       "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
       "filetypes": ["go"]
+    },
+    "typeprof": {
+      "command": "typeprof",
+      "args": ["--lsp", "--stdio"],
+      "filetypes": ["ruby"]
     }
   }
 }

@@ -106,6 +106,7 @@ alias npm-commands="cat package.json | jq .scripts"
 alias ghci="stack ghci"
 alias hl="highlight"
 alias echopaths="echo $PATH | tr ':' '\n'"
+alias lc="leetcode"
 
 
 ## ----------

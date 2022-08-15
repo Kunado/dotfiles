@@ -1,4 +1,4 @@
-nmap <C-f> :Fern . -reveal=% -drawer -toggle -width=35<CR>
+nmap <C-l> :Fern . -reveal=% -drawer -toggle -width=35<CR>
 let g:fern#renderer = 'nerdfont'
 let g:fern#default_hidden = 1
 
