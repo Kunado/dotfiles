@@ -31,7 +31,8 @@ packer.startup(function(use)
   use 'nvim-telescope/telescope-file-browser.nvim'
 
   -- color scheme
-  use 'cocopon/iceberg.vim'
+  use 'folke/tokyonight.nvim'
+  use 'EdenEast/nightfox.nvim'
   --[[use {
     'svrana/neosolarized.nvim',
     requires = { 'tjdevries/colorbuddy.nvim' }
@@ -60,4 +61,6 @@ packer.startup(function(use)
 
   -- doc
   use 'vim-jp/vimdoc-ja'
+
+  use 'github/copilot.vim'
 end)

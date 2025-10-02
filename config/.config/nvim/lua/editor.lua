@@ -51,4 +51,4 @@ vim.opt.showtabline = 2
 
 vim.opt.mouse = ''
 
-vim.cmd 'colorscheme iceberg'
+vim.cmd 'colorscheme nightfox'
